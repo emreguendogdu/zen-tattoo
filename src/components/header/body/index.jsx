@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { blur, translate } from "../header/anim"
+import { blur, translate } from "../anim"
 
 const getChars = (title) => {
   let chars = []

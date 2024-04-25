@@ -13,6 +13,8 @@ const transitions =
 const burgerIsActive =
   "after:-top-[1px] before:top-[1px] after:rotate-45 before:-rotate-45"
 
+let bg = "bg-white"
+
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
   const pathname = usePathname()
@@ -22,14 +24,14 @@ export default function Header() {
   }, [pathname])
   return (
     <header
-      className={`${PPMonumentLight.variable} font-PPMonumentLight bg-[var(--header-bg-color)] text-[var(--header-text-color)] tracking-tighter z-20 p-3 w-full fixed box-border md:p-5`}
+      className={`${PPMonumentLight.variable} font-PPMonumentLight bg-[var(--header-bg)] text-[var(--header-text)] tracking-tighter z-10 p-3 w-full fixed box-border md:p-5`}
     >
       <div
         className={
           "relative flex justify-between text-center text-xs uppercase md:text-base [&>p]:m-0"
         }
       >
-        <Link href="/" className="no-underline color(var(--header-text-color))">
+        <Link href="/" className="no-underline color(var(--header-text))">
           Zen Tattoo
         </Link>
         <div
@@ -37,7 +39,7 @@ export default function Header() {
           className="flex items-center gap-2 cursor-pointer"
         >
           <div
-            className={`w-6 after:block before:block after:w-full before:w-full after:h-[1px] before:h-[1px] after:bg-[var(--header-text-color)] before:bg-[var(--header-text-color)] after:relative before:relative after:-top-1 before:top-1 ${transitions} ${
+            className={`w-6 after:block before:block after:w-full before:w-full after:h-[1px] before:h-[1px] after:bg-[var(--header-text)] before:bg-[var(--header-text)] after:relative before:relative after:-top-1 before:top-1 ${transitions} ${
               isActive ? burgerIsActive : ""
             }`}
           />

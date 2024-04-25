@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --header-text-color: black;
-  --header-bg-color: white;
+  --header-bg: white;
+  --header-text: black;
 }
 
 body {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { height } from "./anim"
-import Body from "../body"
+import Body from "./body"
 import { useState } from "react"
 import NavImage from "./image"
 

@@ -45,9 +45,8 @@ export default function Contact() {
             <Image
               src="/images/contact-frame-img.jpg"
               alt="Man making tattoo."
-              layout="fill"
-              objectFit="cover"
               className={styles.img}
+              fill
             />
           </div>
         </div>
@@ -64,7 +63,7 @@ export default function Contact() {
             </div>
             <button className={styles.button}>Book Now</button>
           </div>
-          <div className="absolute left-0 bottom-0 md:px-8 mt-40 font-PPMonumentLight">
+          <div className="md:absolute md:left-0 md:bottom-0 md:px-8 mt-40 font-PPMonumentLight">
             <p>
               <span className="font-extrabold text-xs md:text-base">
                 Available:

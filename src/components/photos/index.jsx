@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "react-responsive"
 
-export default function Images() {
+export default function Photos() {
   const containerRef = useRef(null)
   const [isDesktop, setIsDesktop] = useState(false)
   const desktop = useMediaQuery({ query: "(min-width: 768px)" })
@@ -24,7 +24,12 @@ export default function Images() {
   )
 
   return (
-    <section className="min-h-[600vh] relative" ref={containerRef}>
+    <motion.section
+      className="min-h-[600vh] relative bg-black"
+      id="images"
+      ref={containerRef}
+      whileInView={{ "--header-bg": "black !important", "--header-text": "white" }}
+    >
       <div className="sticky top-0 h-screen items-center overflow-hidden">
         <motion.div
           style={{ x: X_FOR_HORIZONTAL_SCROLL }}
@@ -43,6 +48,6 @@ export default function Images() {
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }

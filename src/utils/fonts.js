@@ -12,5 +12,5 @@ export const PPMonumentRegular = localFont({
 export const PPMonumentLight = localFont({
   src: "../../public/fonts/PP Monument Extended/light.otf",
   variable: "--font-ppmonument-light",
-  style: "normal,",
+  style: "normal",
 })
