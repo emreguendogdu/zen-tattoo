@@ -15,7 +15,7 @@ const burgerIsActive =
 
 let bg = "bg-white"
 
-export default function Header() {
+export default function Header({ imagesAndContactIsInView }) {
   const [isActive, setIsActive] = useState(false)
   const pathname = usePathname()
 
@@ -24,7 +24,11 @@ export default function Header() {
   }, [pathname])
   return (
     <header
-      className={`${PPMonumentLight.variable} font-PPMonumentLight bg-[var(--header-bg)] text-[var(--header-text)] tracking-tighter z-10 p-3 w-full fixed box-border md:p-5`}
+      className={`${
+        PPMonumentLight.variable
+      } font-PPMonumentLight bg-[var(--header-bg)] text-[var(--header-text)] tracking-tighter z-10 p-3 w-full fixed box-border md:p-5 ${
+        imagesAndContactIsInView ? "bg-black text-white" : "bg-white text-black"
+      }`}
     >
       <div
         className={
@@ -41,6 +45,10 @@ export default function Header() {
           <div
             className={`w-6 after:block before:block after:w-full before:w-full after:h-[1px] before:h-[1px] after:bg-[var(--header-text)] before:bg-[var(--header-text)] after:relative before:relative after:-top-1 before:top-1 ${transitions} ${
               isActive ? burgerIsActive : ""
+            } ${
+              imagesAndContactIsInView
+                ? "after:bg-white before:bg-white"
+                : "after:bg-black before:bg-black"
             }`}
           />
           <div className="relative flex [&>p:nth-of-type(2)]:absolute [&>p:nth-of-type(2)]:opacity-0">

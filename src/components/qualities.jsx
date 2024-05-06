@@ -1,7 +1,7 @@
 "use client"
-import { useScroll, motion, useTransform } from "framer-motion"
+import { useScroll } from "framer-motion"
 import { useRef } from "react"
-import Image from "next/image"
+import Quality from "./quality"
 
 const qualities = [
   {
@@ -35,47 +35,29 @@ export default function Qualities() {
   const targetRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "end start"],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0", "-400%"])
-  const position = useTransform(scrollYProgress, (pos) => {
-    return pos === 0.5 ? "relative" : "sticky"
+    offset: ["start start", "end end"],
   })
 
   return (
-    <section id="qualities">
-      <div
-        className="px-8 py-8 w-full min-h-[250vh] bg-white border-gray-400 border-t-[1px] border-b-0 rounded-[4rem]"
-        ref={targetRef}
-      >
-        <motion.div className="flex flex-col">
-          {qualities.map((quality, index) => {
-            return (
-              <motion.div
-                key={index}
-                className="flex flex-col justify-center items-center w-full min-h-160 sticky top-0 bg-white text-black"
-                style={{ position }}
-              >
-                <div className="relative min-h-80 w-full max-w-screen-md">
-                  <Image
-                    src={`/images/_${index + 1}.jpg`}
-                    className="object-cover"
-                    alt=""
-                    aria-hidden
-                    fill={true}
-                  />
-                </div>
-                <h1 className="text-2xl md:text-4xl mt-6 mb-3 font-PPMonumentBlack uppercase">
-                  {quality.title}
-                </h1>
-                <p className="max-w-screen-md text-lg pb-12">
-                  {quality.content}
-                </p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+    <section
+      id="qualities"
+      className="mt-[50vh] relative px-8 py-8 w-full bg-white border-gray-400 border-t-[1px] border-b-0 rounded-[4rem] pt-24"
+      ref={targetRef}
+    >
+      <div className="flex flex-col">
+        {qualities.map((quality, i) => {
+          const targetScale = 1 - (qualities.length - i) * 0.05
+          return (
+            <Quality
+              quality={quality}
+              index={i}
+              key={i}
+              globalProgress={scrollYProgress}
+              range={[i * (1 / qualities.length), 1]}
+              targetScale={targetScale}
+            />
+          )
+        })}
       </div>
     </section>
   )

@@ -28,12 +28,18 @@ export default function Photos() {
       className="min-h-[600vh] relative bg-black"
       id="images"
       ref={containerRef}
-      whileInView={{ "--header-bg": "black !important", "--header-text": "white" }}
+      whileInView={{
+        "--header-bg": "black !important",
+        "--header-text": "white",
+      }}
     >
       <div className="sticky top-0 h-screen items-center overflow-hidden">
+        <h1 className="text-5xl text-white text-center uppercase mt-24 mb-12 font-PPMonumentBlack">
+          Gallery
+        </h1>
         <motion.div
           style={{ x: X_FOR_HORIZONTAL_SCROLL }}
-          className="flex gap-2 mt-24"
+          className="flex gap-2"
         >
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="relative min-w-[400px] min-h-[600px]">

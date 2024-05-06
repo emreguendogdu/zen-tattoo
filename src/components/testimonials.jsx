@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 const testimonials = [
   {
     name: "Samantha H.",
@@ -31,6 +35,17 @@ const testimonials = [
   },
 ]
 
+const testimonialVariants = {
+  initial: { opacity: 0 },
+  animate: (i) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.1,
+    },
+  }),
+}
+
 export default function Testimonials() {
   return (
     <section className="min-h-screen">
@@ -41,8 +56,13 @@ export default function Testimonials() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={testimonialVariants}
+              initial="initial"
+              whileInView="animate"
+              custom={index}
+              viewport={{ once: true, amount: 0.5 }}
               className="relative bg-white p-8 rounded-lg shadow-lg"
             >
               <p className="text-gray-800 mb-4 text-sm md:text-base">
@@ -50,7 +70,7 @@ export default function Testimonials() {
               </p>
               <div className="border mb-4"></div>
               <p className="text-gray-800 font-bold">{testimonial.name}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

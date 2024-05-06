@@ -36,6 +36,11 @@ export default function About() {
     animate: { y: 0, opacity: 1 },
     exit: { y: -100, opacity: 0 },
   }
+  const TEXT_VARIANTS = {
+    initial: { y: 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: -100, opacity: 0 },
+  }
 
   return (
     <section
@@ -46,17 +51,17 @@ export default function About() {
         <div className="w-full flex flex-col md:flex-row gap-8">
           <div className="basis-[10%] hidden md:block">
             {!secondPart ? (
-              <motion.div {...anim(ICON_VARIANTS)}>
+              <motion.div key={secondPart} {...anim(ICON_VARIANTS)}>
                 <Heart width="96px" height="96px" style={{ color: "red" }} />
               </motion.div>
             ) : (
-              <div>
+              <motion.div key={secondPart} {...anim(ICON_VARIANTS)}>
                 <Diamond
                   width="96px"
                   height="96px"
                   fill="rgba(0, 0, 255, 0.6)"
                 />
-              </div>
+              </motion.div>
             )}
           </div>
           <div className="md:basis-1/3 relative min-h-[650px] overflow-hidden">
@@ -65,14 +70,14 @@ export default function About() {
               style={{ backgroundImage }}
             />
           </div>
-          <div className="md:basis-1/3 absolute md:relative p-2 text-white md:p-0 md:text-black md:block">
+          <motion.div key={secondPart} {...anim(TEXT_VARIANTS)} className="md:basis-1/3 absolute md:relative p-2 text-white md:p-0 md:text-black md:block">
             <h1 className="text-3xl md:text-4xl uppercase mb-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:drop-shadow-none">
               {!secondPart ? firstTitle : secondTitle}
             </h1>
             <p className="leading-relaxed text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:drop-shadow-none">
               {!secondPart ? firstText : secondText}
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
