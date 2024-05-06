@@ -5,6 +5,7 @@ import Hero from "@/components/hero"
 import Images from "@/components/photos"
 import PreLoader from "@/components/preloader"
 import Qualities from "@/components/qualities"
+import Testimonials from "@/components/testimonials"
 import Image from "next/image"
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <About />
         <Qualities />
+        <Testimonials />
         <Images />
         <Contact />
       </main>

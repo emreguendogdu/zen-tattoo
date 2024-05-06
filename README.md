@@ -1,6 +1,0 @@
-- [] Fix plant on Hero causing overflow-x
-- [] Feat Nav background style change while in #Photos section
-- [] Change preloader background
-- [] Add title to Photos section
-- [] Add new section with dogmakingtattoo.gif, manmakingtattoo.gif, place1-2-3-4.jpg
-- [] Add about us section
