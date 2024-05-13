@@ -20,7 +20,7 @@ export default function Quality({
   const CARD_SCALE = useTransform(globalProgress, range, [1, targetScale])
 
   return (
-    <motion.div
+    <div
       className="sticky top-0 h-screen flex justify-center items-center"
       ref={qualityTargetRef}
     >
@@ -34,7 +34,7 @@ export default function Quality({
             style={{ scale: IMAGE_SCALE }}
           >
             <Image
-              src={`/images/_${index + 1}.jpg`}
+              src={`/images/_${index + 1}.webp`}
               className="object-cover rounded-3xl"
               alt=""
               aria-hidden
@@ -51,6 +51,6 @@ export default function Quality({
           </p>
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   )
 }

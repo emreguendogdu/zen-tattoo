@@ -44,7 +44,7 @@ export default function Photos() {
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="relative min-w-[400px] min-h-[600px]">
               <Image
-                src={`/images/${i + 1}.jpg`}
+                src={`/images/${i + 1}.webp`}
                 fill={true}
                 className="w-full h-full object-cover"
                 alt=""

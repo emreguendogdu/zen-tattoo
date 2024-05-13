@@ -43,7 +43,7 @@ export default function Contact() {
         <div className="md:flex-1 flex justify-center items-center">
           <div className={styles.frame}>
             <Image
-              src="/images/contact-frame-img.jpg"
+              src="/images/contact-frame-img.webp"
               alt="Man making tattoo."
               className={styles.img}
               fill
