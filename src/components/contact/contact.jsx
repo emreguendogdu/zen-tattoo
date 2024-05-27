@@ -68,7 +68,7 @@ export default function Contact() {
               <span className="font-extrabold text-xs md:text-base">
                 Available:
               </span>{" "}
-              <span className="text-red-500 text-xs md:text-base">
+              <span className="-text--primary-color text-xs md:text-base">
                 {formattedDate}
               </span>{" "}
               <span className="text-[0.5rem] md:text-xs">

@@ -14,6 +14,9 @@ module.exports = {
         "circle-linear": "linear-gradient(to right, #93A5CF, #E4EfE9)",
         "preloader-pattern": "url('/images/japanese-pattern.png')",
       },
+      colors: {
+        "--primary-color": "var(--primary-color)",
+      },
     },
     fontFamily: {
       PPMonumentBlack: ["var(--font-ppmonument-black)", "sans-serif"],

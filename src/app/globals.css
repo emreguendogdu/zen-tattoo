@@ -5,6 +5,7 @@
 :root {
   --header-bg: white;
   --header-text: black;
+  --primary-color: #6495ED;
 }
 
 body {
