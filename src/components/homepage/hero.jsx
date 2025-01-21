@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="max-w-screen-md">
           <div className="overflow-hidden">
             <motion.h1
-              {...anim(Y_VARIANTS, delay + 1.25)}
+              {...anim(Y_VARIANTS, delay + 0.75)}
               className="text-center"
             >
               Experience ink artistry.
@@ -75,7 +75,7 @@ export default function Hero() {
                 return (
                   <React.Fragment key={`dsc__${i}`}>
                     <span className="relative inline-flex overflow-hidden">
-                      <motion.span {...anim(Y_VARIANTS, delay + 1.2)}>
+                      <motion.span {...anim(Y_VARIANTS, delay + 0.7)}>
                         {word}
                       </motion.span>
                       <span className="inline-block">&nbsp;</span>
@@ -99,7 +99,7 @@ export default function Hero() {
               strokeMiterlimit: 1.5,
             }}
             className="w-7 md:w-10 mb-2"
-            {...anim(Y_VARIANTS, delay + 1.35)}
+            {...anim(Y_VARIANTS, delay + 0.85)}
           >
             <path
               id="wheel"

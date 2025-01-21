@@ -29,9 +29,6 @@ module.exports = {
       colors: {
         primary: "var(--primary-color)",
       },
-      dropShadow: {
-        custom: "0 1.2px 1.2px rgba(0,0,0,0.8)",
-      },
       fontFamily: {
         display: "var(--font-display)",
       },
