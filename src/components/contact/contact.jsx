@@ -26,19 +26,18 @@ export default function Contact() {
     <section id="contact" className="relative">
       <div className="min-h-screen py-16 md:py-0 bg-black text-white flex flex-col md:flex-row justify-center items-center w-full px-16">
         <div className="md:flex-1 flex justify-center items-center">
-          <div className={styles.frame}>
-            <Image
-              src="/images/contact-frame-img.webp"
-              alt="Man making tattoo."
-              className={styles.img}
-              fill
-            />
-          </div>
+          <Image
+            src="/images/contact-frame-img.webp"
+            alt="Man making tattoo."
+            className="object-cover rounded-custom-contact"
+            width={252}
+            height={360}
+          />
         </div>
         <div className="mt-16 flex-1">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h2 className='h3 md:text-left'>
+              <h2 className="h3 md:text-left">
                 One last touch to let your vision come true
               </h2>
               <p className="md:text-lg font-light">
@@ -52,8 +51,7 @@ export default function Contact() {
       </div>
       <footer className="text-white md:absolute md:right-0 md:left-0 md:bottom-2 font-display font-light spacing text-[.65rem] px-sectionX-m md:px-sectionX md:flex md:justify-between md:items-center [&_span]:text-xs [&_span]:md:text-base">
         <p>
-          Available:{" "}
-          <span className="text-primary">{formattedMonth}</span>{" "}
+          Available: <span className="text-primary">{formattedMonth}</span>{" "}
           (Filling up fast, book now!)
         </p>
         <p>

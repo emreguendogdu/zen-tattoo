@@ -16,6 +16,9 @@ module.exports = {
       animation: {
         scroll: "scroll 2s ease infinite",
       },
+      borderRadius: {
+        "custom-contact": "50% 50% 50% 50% / 60% 60% 0% 0%",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

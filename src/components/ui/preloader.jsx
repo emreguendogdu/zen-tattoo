@@ -28,9 +28,9 @@ const SECTION_VARIANTS = {
 }
 
 const TEXT_VARIANTS = {
-  initial: { y: "125%" },
+  initial: { y: "132%" },
   animate: (i) => ({
-    y: ["125%", "0%", "0%", "-800%"],
+    y: ["132%", "0%", "0%", "-800%"],
     scale: [1, 1, 1, 0.8],
     transition: {
       delay: i,
@@ -66,7 +66,7 @@ export default function PreLoader() {
       </motion.div>
       <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
         <motion.p
-          className="relative capitalize h2 text-neutral-100 drop-shadow-custom"
+          className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
           {...anim(TEXT_VARIANTS, 0.1)}
         >
           2024®
