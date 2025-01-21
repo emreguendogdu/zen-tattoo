@@ -55,6 +55,7 @@ export default function Hero() {
               width={400}
               height={500}
               className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
+              priority
             />
           </motion.div>
         </div>

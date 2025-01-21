@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
 import { anim } from "@/utils/anim"
-import useDimensions from "@/hooks/useDimensions"
 import Image from "next/image"
 
 export const PRELOADER_DURATION = 2
@@ -49,50 +48,42 @@ const onAnimationComplete = () => {
 }
 
 export default function PreLoader() {
-  const dimensions = useDimensions()
+  const texts = ["Zen Tattoo", "2024®"]
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
+      className="fixed top-0 left-0 right-0 h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none w-full"
       id="loader"
       {...anim(SECTION_VARIANTS)}
       onAnimationComplete={onAnimationComplete}
     >
-      <Image
-        src="/images/patterns.png"
-        width={dimensions.width / 2}
-        height={dimensions.height}
-        alt="Preloader Japanese style pattern background"
-        priority
-        className="absolute w-1/2 h-full left-0 top-0 brightness-[0.25] object-cover"
-      />
-      <Image
-        src="/images/patterns.png"
-        width={dimensions.width / 2}
-        height={dimensions.height}
-        alt="Preloader Japanese style pattern background"
-        priority
-        className="absolute w-1/2 h-full right-0 top-0 brightness-[0.25] object-cover"
-      />
-      
-      {/* <div className="absolute w-1/2 h-full top-0 left-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" />
-      <div className="absolute w-1/2 h-full top-0 right-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" /> */}
-      <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
-        <motion.p
-          className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
-          {...anim(TEXT_VARIANTS, 0)}
+      <div className="absolute w-full h-full flex flex-wrap">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div key={index} className="relative w-1/2 h-1/2 brightness-[0.2]">
+            <Image
+              src="/images/patterns.png"
+              alt="Preloader Japanese style pattern background"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      {texts.map((text, index) => (
+        <motion.div
+          key={index}
+          className="overflow-hidden"
+          {...anim(OVERFLOW_VARIANTS)}
         >
-          Zen Tattoo
-        </motion.p>
-      </motion.div>
-      <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
-        <motion.p
-          className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
-          {...anim(TEXT_VARIANTS, 0.1)}
-        >
-          2024®
-        </motion.p>
-      </motion.div>
+          <motion.p
+            className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
+            {...anim(TEXT_VARIANTS, index * 0.1)}
+          >
+            {text}
+          </motion.p>
+        </motion.div>
+      ))}
     </motion.div>
   )
 }

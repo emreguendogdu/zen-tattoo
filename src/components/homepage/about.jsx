@@ -10,6 +10,7 @@ import { useRef, useState } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
 import { anim } from "@/utils/anim"
+import Image from "next/image"
 
 const copy = {
   first: {
@@ -62,11 +63,32 @@ export default function About() {
           </div>
           <div className="md:basis-1/3 relative h-[35vh] md:min-h-[650px] overflow-hidden">
             <motion.div
-              className={`bg-[url('/images/manmakingtattoo.gif')] w-full h-full bg-cover bg-center md:relative md:top-auto`}
-              style={{ backgroundImage }}
+              className={`relative w-full h-full`}
               key={secondPart}
               {...anim(ELEMENT_VARIANTS)}
-            />
+            >
+              {!secondPart ? (
+                <Image
+                  src="/images/manmakingtattoo.gif"
+                  fill
+                  className={`w-full h-full object-cover ${
+                    secondPart && invisible
+                  }`}
+                  priority
+                  unoptimized // As animated, it won't be optimized
+                />
+              ) : (
+                <Image
+                  src="/images/dogmakingtattoo.gif"
+                  fill
+                  className={`w-full h-full object-cover ${
+                    !secondPart && invisible
+                  }`}
+                  priority
+                  unoptimized // As animated, it won't be optimized
+                />
+              )}
+            </motion.div>
           </div>
           <motion.div
             key={secondPart}
