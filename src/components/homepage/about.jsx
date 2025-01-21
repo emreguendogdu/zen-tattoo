@@ -48,7 +48,7 @@ export default function About() {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[300vh] w-full -my-[100vh] z-10 bg-white border-black border"
+      className="relative min-h-[400vh] w-full -my-[100vh] z-10 bg-white border-black border"
     >
       <div className="sticky top-0 flex pt-16 md:pt-32 px-sectionX-m md:px-sectionX">
         <div className="w-full flex flex-col md:flex-row gap-4 md:gap-8">
@@ -74,7 +74,6 @@ export default function About() {
                   className={`w-full h-full object-cover ${
                     secondPart && invisible
                   }`}
-                  priority
                   unoptimized // As animated, it won't be optimized
                 />
               ) : (
@@ -84,7 +83,6 @@ export default function About() {
                   className={`w-full h-full object-cover ${
                     !secondPart && invisible
                   }`}
-                  priority
                   unoptimized // As animated, it won't be optimized
                 />
               )}
