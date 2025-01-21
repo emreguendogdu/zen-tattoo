@@ -1,6 +1,8 @@
 "use client"
 import { motion } from "framer-motion"
 import { anim } from "@/utils/anim"
+import useDimensions from "@/hooks/useDimensions"
+import Image from "next/image"
 
 export const PRELOADER_DURATION = 2
 
@@ -47,15 +49,34 @@ const onAnimationComplete = () => {
 }
 
 export default function PreLoader() {
+  const dimensions = useDimensions()
+
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 font-display font-bold select-none"
+      className="fixed top-0 left-0 right-0 h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
       id="loader"
       {...anim(SECTION_VARIANTS)}
       onAnimationComplete={onAnimationComplete}
     >
-      <div className="absolute w-1/2 h-full top-0 left-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" />
-      <div className="absolute w-1/2 h-full top-0 right-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" />
+      <Image
+        src="/images/patterns.png"
+        width={dimensions.width / 2}
+        height={dimensions.height}
+        alt="Preloader Japanese style pattern background"
+        priority
+        className="absolute w-1/2 h-full left-0 top-0 brightness-[0.25] object-cover"
+      />
+      <Image
+        src="/images/patterns.png"
+        width={dimensions.width / 2}
+        height={dimensions.height}
+        alt="Preloader Japanese style pattern background"
+        priority
+        className="absolute w-1/2 h-full right-0 top-0 brightness-[0.25] object-cover"
+      />
+      
+      {/* <div className="absolute w-1/2 h-full top-0 left-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" />
+      <div className="absolute w-1/2 h-full top-0 right-0 bg-preloader-pattern bg-repeat bg-contain brightness-[0.25]" /> */}
       <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
         <motion.p
           className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
