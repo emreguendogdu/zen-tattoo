@@ -43,6 +43,7 @@ const TEXT_VARIANTS = {
 }
 
 const onAnimationComplete = () => {
+  if (window == undefined) return
   document.body.style.overflow = "visible"
   window.scrollTo(0, 0)
 }

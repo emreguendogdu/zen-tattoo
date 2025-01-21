@@ -13,7 +13,7 @@ export default function Gallery() {
     offset: ["10% start", "end end"],
   })
 
-  const isMobile = window.innerWidth < 768
+  const isMobile = window !== undefined && window.innerWidth < 768
 
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
