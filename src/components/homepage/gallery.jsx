@@ -1,7 +1,7 @@
 "use client"
 import { useScroll, useTransform, motion } from "framer-motion"
 import Image from "next/image"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 const imagesLength = 8
 
