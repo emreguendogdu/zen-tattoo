@@ -1,4 +1,3 @@
-import styles from "./contact.module.css"
 import Image from "next/image"
 
 const monthNames = [
@@ -32,6 +31,7 @@ export default function Contact() {
             className="object-cover rounded-custom-contact"
             width={252}
             height={360}
+            blurDataURL={`/images/lazy-loading/contact-frame-img-small.webp`}
           />
         </div>
         <div className="mt-16 flex-1">
@@ -49,7 +49,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <footer className="text-white md:absolute md:right-0 md:left-0 md:bottom-2 font-display font-light spacing text-[.65rem] px-sectionX-m md:px-sectionX md:flex md:justify-between md:items-center [&_span]:text-xs [&_span]:md:text-base">
+      <footer className="absolute left-0 right-0 bottom-0 text-white font-display font-light flex justify-between items-center px-sectionX-m md:px-sectionX text-xs text-justify md:text-left md:text-sm">
         <p>
           Available: <span className="text-primary">{formattedMonth}</span>{" "}
           (Filling up fast, book now!)

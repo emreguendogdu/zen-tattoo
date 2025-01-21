@@ -15,7 +15,8 @@ export default function NavImage({ isActive, src }) {
       animate={isActive ? "open" : "closed"}
     >
       <Image
-        src={`/images${src}`}
+        src={`/images/${src}.webp`}
+        blurDataURL={`/images/lazy-loading/${src}-small.webp`}
         width={200}
         height={200}
         className="md:w-full md:h-full md:object-cover"

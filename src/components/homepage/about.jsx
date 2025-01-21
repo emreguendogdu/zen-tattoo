@@ -50,9 +50,9 @@ export default function About() {
       ref={targetRef}
       className="relative min-h-[400vh] w-full -my-[100vh] z-10 bg-white border-black border"
     >
-      <div className="sticky top-0 flex pt-16 md:pt-32 px-sectionX-m md:px-sectionX">
+      <div className="sticky top-0 flex pt-8 md:pt-32 px-sectionX-m md:px-sectionX">
         <div className="w-full flex flex-col md:flex-row gap-4 md:gap-8">
-          <div className="basis-[10%] absolute brightness-75 md:brightness-100 bottom-16 -translate-y-1/2 right-sectionX -z-10 md:z-0 md:static md:translate-y-0">
+          <div className="basis-[10%] absolute brightness-75 md:brightness-100 bottom-8 -translate-y-1/2 right-sectionX -z-10 md:z-0 md:static md:translate-y-0">
             <motion.div
               key={secondPart}
               {...anim(ELEMENT_VARIANTS)}
@@ -67,6 +67,7 @@ export default function About() {
               key={secondPart}
               {...anim(ELEMENT_VARIANTS)}
             >
+              {/* TODO: set LazyLoadingImage, get first frames as blurred img */}
               {!secondPart ? (
                 <Image
                   src="/images/manmakingtattoo.gif"

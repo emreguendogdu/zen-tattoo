@@ -1,7 +1,7 @@
 "use client"
 
 import About from "@/components/homepage/about"
-import Contact from "@/components/contact/contact"
+import Contact from "@/components/homepage/contact"
 import Header from "@/components/ui/header/header"
 import Hero from "@/components/homepage/hero"
 import Gallery from "@/components/homepage/gallery"

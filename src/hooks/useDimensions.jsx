@@ -8,6 +8,8 @@ export default function useDimensions() {
     height: 0,
   })
 
+  // TODO That's not working very well. Migrate it.
+
   useEffect(() => {
     const handleResize = () => {
       setDimensions({

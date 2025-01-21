@@ -56,6 +56,7 @@ export default function Hero() {
               height={500}
               className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
               priority
+              blurDataURL={`/images/lazy-loading/plants-small.webp`}
             />
           </motion.div>
         </div>

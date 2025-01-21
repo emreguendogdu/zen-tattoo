@@ -5,8 +5,8 @@ import { useState } from "react"
 import NavImage from "./image"
 
 const links = [
-  { title: "Home", href: "/#home", src: "/place1.webp" },
-  { title: "Contact", href: "/#contact", src: "/contact.webp" },
+  { title: "Home", href: "/#home", src: "home" },
+  { title: "Contact", href: "/#contact", src: "contact" },
 ]
 
 export default function Nav({ setIsActive }) {
