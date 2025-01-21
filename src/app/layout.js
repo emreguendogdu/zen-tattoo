@@ -1,12 +1,33 @@
 import { Inter } from "next/font/google"
+import localFont from "next/font/local"
+
 import "./globals.css"
-import {
-  PPMonumentBlack,
-  PPMonumentLight,
-  PPMonumentRegular,
-} from "@/utils/fonts"
+import GlobalProvider from "@/context/GlobalProvider"
+import SmoothScrolling from "@/components/SmoothScrolling"
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const PPMonument = localFont({
+  src: [
+    {
+      path: "../../public/fonts/PP Monument Extended/black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/PP Monument Extended/regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/PP Monument Extended/light.otf",
+      weight: "300",
+      style: "normal",
+    },
+  ],
+  variable: "--font-display",
+  subsets: ["latin"],
+})
 
 export const metadata = {
   title: "Zen Tattoo",
@@ -17,10 +38,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${PPMonumentBlack.variable} ${PPMonumentRegular.variable} ${PPMonumentLight.variable} ${inter.className}`}
-      >
-        {children}
+      <body className={`${PPMonument.variable} ${inter.className}`}>
+        <GlobalProvider>
+          <SmoothScrolling>{children}</SmoothScrolling>
+        </GlobalProvider>
       </body>
     </html>
   )

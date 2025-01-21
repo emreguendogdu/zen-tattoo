@@ -1,38 +1,29 @@
 "use client"
 
-import { useInView } from "framer-motion"
-import React, { useEffect, useRef } from "react"
-import About from "@/components/about"
+import About from "@/components/homepage/about"
 import Contact from "@/components/contact/contact"
-import Header from "@/components/header/header"
-import Hero from "@/components/hero"
-import Images from "@/components/photos"
-import PreLoader from "@/components/preloader"
-import Qualities from "@/components/qualities"
+import Header from "@/components/ui/header/header"
+import Hero from "@/components/homepage/hero"
+import Gallery from "@/components/homepage/gallery"
+import PreLoader from "@/components/ui/preloader"
+import Qualities from "@/components/homepage/qualities"
 import Testimonials from "@/components/testimonials"
+import { useSectionInView } from "@/context/SectionInViewContext"
 
 export default function Home() {
-  const imagesAndContactRef = useRef(null)
-  const imagesAndContactIsInView = useInView(imagesAndContactRef, {
-    margin: "-40%",
-  })
-
+  const { galleryAndContactRef } = useSectionInView()
   return (
     <>
-      <PreLoader />
-      <main>
-        <Header imagesAndContactIsInView={imagesAndContactIsInView} />
-        <div id="home" className="pt-4">
-          <Hero />
-          <About />
-          <Qualities />
-          <Testimonials />
-          <div ref={imagesAndContactRef}>
-            <Images />
-            <Contact />
-          </div>
-        </div>
-      </main>
+      {/* <PreLoader /> */}
+      <Header />
+      <Hero />
+      <About />
+      <Qualities />
+      <Testimonials />
+      <div ref={galleryAndContactRef}>
+        <Gallery />
+        <Contact />
+      </div>
     </>
   )
 }

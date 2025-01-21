@@ -48,11 +48,11 @@ const testimonialVariants = {
 
 export default function Testimonials() {
   return (
-    <section className="min-h-screen">
-      <div className="flex flex-col items-center justify-center p-8">
+    <section className="min-h-screen -mt-[200vh]">
+      <div className="flex flex-col items-center justify-center pt-16 md:p-8">
         <div className="mb-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">430+ Happy Customers</h2>
-          <p className="italic">They never thought it was a mistake.</p>
+          <h2>430+ Happy Customers</h2>
+          <p className="italic">They thought it was their best choice!</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
@@ -65,10 +65,9 @@ export default function Testimonials() {
               viewport={{ once: true, amount: 0.5 }}
               className="relative bg-white p-8 rounded-lg shadow-lg"
             >
-              <p className="text-gray-800 mb-4 text-sm md:text-base">
+              <p className="text-gray-800 mb-4 text-sm md:text-base pb-4 border-b-2">
                 {testimonial.message}
               </p>
-              <div className="border mb-4"></div>
               <p className="text-gray-800 font-bold">{testimonial.name}</p>
             </motion.div>
           ))}
