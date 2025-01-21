@@ -7,13 +7,19 @@ const imagesLength = 8
 
 export default function Gallery() {
   const targetRef = useRef(null)
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    if (window === undefined) return
+    setWidth(window.innerWidth)
+  }, [window.innerWidth])
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["10% start", "end end"],
   })
 
-  const isMobile = window !== undefined && window.innerWidth < 768
+  const isMobile = width < 768
 
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
