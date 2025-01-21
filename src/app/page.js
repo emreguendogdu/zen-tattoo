@@ -14,11 +14,11 @@ export default function Home() {
   const { galleryAndContactRef } = useSectionInView()
   return (
     <>
-      <PreLoader />
+      {/* <PreLoader />
       <Header />
       <Hero />
       <About />
-      <Qualities />
+      <Qualities /> */}
       <Testimonials />
       <div ref={galleryAndContactRef}>
         <Gallery />

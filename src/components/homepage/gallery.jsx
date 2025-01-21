@@ -1,18 +1,14 @@
 "use client"
+import useDeviceSize from "@/hooks/useDeviceSize"
 import { useScroll, useTransform, motion } from "framer-motion"
 import Image from "next/image"
-import { useRef, useState, useEffect } from "react"
+import { useRef } from "react"
 
 const imagesLength = 8
 
 export default function Gallery() {
   const targetRef = useRef(null)
-  const [width, setWidth] = useState(0)
-
-  useEffect(() => {
-    if (window === undefined) return
-    setWidth(window.innerWidth)
-  }, [window.innerWidth])
+  const [width, height] = useDeviceSize()
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
