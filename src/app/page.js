@@ -9,12 +9,14 @@ import PreLoader from "@/components/ui/preloader"
 import Qualities from "@/components/homepage/qualities"
 import Testimonials from "@/components/testimonials"
 import { useSectionInView } from "@/context/SectionInViewContext"
+import ScrollTracker from "@/components/ui/scrollTracker"
 
 export default function Home() {
   const { galleryAndContactRef } = useSectionInView()
   return (
     <>
-      <PreLoader />
+      <ScrollTracker />
+      {/* <PreLoader /> */}
       <Header />
       <Hero />
       <About />

@@ -7,9 +7,7 @@ const SectionInViewContext = createContext()
 
 export const SectionInViewProvider = ({ children }) => {
   const galleryAndContactRef = useRef(null)
-  const galleryAndContactIsInView = useInView(galleryAndContactRef, {
-    margin: "-40%",
-  })
+  const galleryAndContactIsInView = useInView(galleryAndContactRef, {})
 
   return (
     <SectionInViewContext.Provider

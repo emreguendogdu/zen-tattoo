@@ -7,3 +7,8 @@ export function anim(variants, custom = null) {
     custom,
   }
 }
+
+// Track scrollYProgress
+//  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+//    console.log(latest)
+//  })

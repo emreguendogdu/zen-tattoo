@@ -2,7 +2,7 @@
 import { useScroll, motion, useTransform } from "framer-motion"
 import React, { useRef } from "react"
 import Image from "next/image"
-import { anim } from "@/utils/anim"
+import { anim } from "@/utils/utils"
 import { PRELOADER_DURATION } from "../ui/preloader"
 
 const delay = -0.75
@@ -60,11 +60,11 @@ export default function Hero() {
             />
           </motion.div>
         </div>
-        <div className="max-w-screen-md">
+        <div className="max-w-screen-md flex flex-col gap-4">
           <div className="overflow-hidden">
             <motion.h1
               {...anim(Y_VARIANTS, delay + 0.75)}
-              className="text-center"
+              className="text-center mb-0"
             >
               Experience ink artistry.
             </motion.h1>
@@ -85,33 +85,44 @@ export default function Hero() {
               })}
             </motion.p>
           </div>
+          <div className="relative overflow-hidden flex justify-center items-center">
+            <motion.svg
+              width="40px"
+              height="100%"
+              viewBox="0 0 247 390"
+              style={{
+                fillRule: "evenodd",
+                clipRule: "evenodd",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeMiterlimit: 1.5,
+              }}
+              className="w-7 md:w-10 mb-2"
+              {...anim(Y_VARIANTS, delay + 0.85)}
+            >
+              <path
+                id="wheel"
+                d="M123.359,79.775l0,72.843"
+                className="fill-none stroke-black stroke-[30px] md:stroke-[20px] animate-scroll"
+              />
+              <path
+                id="mouse"
+                d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
+                className="fill-none stroke-black stroke-[5px] md:stroke-[3px]"
+              />
+            </motion.svg>
+          </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
-          <motion.svg
-            width="40px"
-            height="100%"
-            viewBox="0 0 247 390"
-            style={{
-              fillRule: "evenodd",
-              clipRule: "evenodd",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-              strokeMiterlimit: 1.5,
-            }}
-            className="w-7 md:w-10 mb-2"
-            {...anim(Y_VARIANTS, delay + 0.85)}
-          >
-            <path
-              id="wheel"
-              d="M123.359,79.775l0,72.843"
-              className="fill-none stroke-black stroke-[30px] md:stroke-[10px] animate-scroll"
-            />
-            <path
-              id="mouse"
-              d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
-              className="fill-none stroke-black stroke-[5px] md:stroke-[2px]"
-            />
-          </motion.svg>
+          <div className="">
+            {/* Display hours and minutes, and GMT + 3 */}
+            <motion.p
+              className="mb-2 text-left text-sm font-display font-light leading-loose"
+              {...anim(Y_VARIANTS, delay)}
+            >
+              10AM - 8PM (mon - sat)
+            </motion.p>
+          </div>
           <motion.p
             className="h0 mb-0 text-right md:text-left"
             {...anim(Y_VARIANTS, delay)}

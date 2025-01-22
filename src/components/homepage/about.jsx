@@ -1,15 +1,10 @@
 "use client"
 
-import {
-  useScroll,
-  motion,
-  useMotionTemplate,
-  useMotionValueEvent,
-} from "framer-motion"
+import { useScroll, motion, useMotionValueEvent } from "framer-motion"
 import { useRef, useState } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
-import { anim } from "@/utils/anim"
+import { anim } from "@/utils/utils"
 import Image from "next/image"
 
 const copy = {
@@ -31,13 +26,8 @@ export default function About() {
   })
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest)
     setSecondPart(latest >= 0.5)
   })
-
-  const backgroundImage = useMotionTemplate`url('${
-    secondPart ? "/images/dogmakingtattoo.gif" : "/images/manmakingtattoo.gif"
-  }')`
 
   const ELEMENT_VARIANTS = {
     initial: { y: 100, opacity: 0 },
@@ -74,7 +64,8 @@ export default function About() {
                   fill
                   className={`w-full h-full object-cover ${
                     secondPart && invisible
-                  }`}
+                    }`}
+                  alt='Man making tattoo gif'
                   unoptimized // As animated, it won't be optimized
                 />
               ) : (
@@ -84,6 +75,7 @@ export default function About() {
                   className={`w-full h-full object-cover ${
                     !secondPart && invisible
                   }`}
+                  alt='A man disguised as a dog making tattoo gif'
                   unoptimized // As animated, it won't be optimized
                 />
               )}

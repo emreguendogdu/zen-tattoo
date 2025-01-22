@@ -49,7 +49,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <footer className="absolute left-0 right-0 bottom-0 text-white font-display font-light flex justify-between items-center px-sectionX-m md:px-sectionX text-xs text-justify md:text-left md:text-sm">
+      <footer className="absolute left-0 right-0 bottom-2 text-white font-display font-light flex justify-between items-center px-sectionX-m md:px-sectionX text-xs text-justify md:text-left md:text-sm">
         <p>
           Available: <span className="text-primary">{formattedMonth}</span>{" "}
           (Filling up fast, book now!)

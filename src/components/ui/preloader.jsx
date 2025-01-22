@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import { anim } from "@/utils/anim"
+import { anim } from "@/utils/utils"
 import Image from "next/image"
 
 export const PRELOADER_DURATION = 2
