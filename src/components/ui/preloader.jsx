@@ -35,7 +35,7 @@ const TEXT_VARIANTS = {
     scale: [1, 1, 1, 0.8],
     transition: {
       delay: i,
-      duration: PRELOADER_DURATION,
+      duration: PRELOADER_DURATION + 0.5,
       ease: [0.35, 0, 0.35, 1],
       times: [0, 0.3, 0.84, 1],
     },
@@ -51,9 +51,10 @@ const onAnimationComplete = () => {
 export default function PreLoader() {
   const texts = ["Zen Tattoo", "2024®"]
 
+  // TODO Use SVG instead of PNG. Make it responsive.
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none w-full"
+      className="fixed top-0 left-0 right-0 w-full h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
       id="loader"
       {...anim(SECTION_VARIANTS)}
       onAnimationComplete={onAnimationComplete}

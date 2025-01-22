@@ -6,6 +6,9 @@ import { anim } from "@/utils/utils"
 import { PRELOADER_DURATION } from "../ui/preloader"
 
 const delay = -0.75
+
+// TODO - Make all delays in variable (array of objects)
+
 const transition = (i) => ({
   delay: i + PRELOADER_DURATION,
   duration: 1,
@@ -118,14 +121,14 @@ export default function Hero() {
             {/* Display hours and minutes, and GMT + 3 */}
             <motion.p
               className="mb-2 text-left text-sm font-display font-light leading-loose"
-              {...anim(Y_VARIANTS, delay)}
+              {...anim(Y_VARIANTS, delay + 0.1)}
             >
               10AM - 8PM (mon - sat)
             </motion.p>
           </div>
           <motion.p
             className="h0 mb-0 text-right md:text-left"
-            {...anim(Y_VARIANTS, delay)}
+            {...anim(Y_VARIANTS, delay + 0.1)}
           >
             Zen Tattoo
           </motion.p>
