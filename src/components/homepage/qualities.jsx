@@ -7,12 +7,12 @@ const qualities = [
   {
     title: "Whatever You Want",
     content:
-      "We offer a wide range of services to meet your unique tattoo needs. From custom designs to cover-ups and touch-ups, our talented artists are here to bring your vision to life.",
+      "We offer a wide range of services to meet your unique tattoo needs. From custom designs to cover-ups and touch-ups, our talented artists are here to bring your vision to life. Top-notch quality and customer satisfaction are our top priorities.",
   },
   {
     title: "Top Quality For: YOU",
     content:
-      "We know how a bad tattoo feels. Thus, we offer you a special experience with high quality equipments and handmade inks.",
+      "We understand the importance of getting a tattoo that truly reflects you. That’s why we use only the highest quality equipment and handcrafted inks to ensure every tattoo is flawless. Your experience is our priority, and we strive to make it unforgettable.",
   },
   {
     title: "Designing Your New Buddy",
@@ -25,9 +25,9 @@ const qualities = [
       "You want to transform or enhance your tat into next level? No worries. We offer the same creative, aesthetic guidance as we do with your tattoos. Book an appointment and we'll work on your next ink.",
   },
   {
-    title: "Have Fun: VR Glasses & Kindles",
+    title: "VR, Kindle, Drink & Music",
     content:
-      "Wait.. what's with the VRs in tattoo studio? Well, to make you the relaxest, we offer VR glasses to watch your favorite movie or series, and e-readers to read your favorite book while getting inked. Besides that, you can choose from a wide range of music and drinks to make yourself feel at home.",
+      "We offer VR glasses to watch your favorite movie or series, and e-readers to read your favorite book while getting inked. You can also choose from a wide range of music and drinks to enjoy like it's your home.",
   },
 ]
 
@@ -60,6 +60,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
               alt="Tattoo related"
               aria-hidden
               fill
+              blurDataURL={`/images/lazy-loading/_${index + 1}-small.webp`}
             />
           </motion.div>
         </div>
@@ -81,7 +82,6 @@ export default function Qualities() {
     offset: ["start start", "end end"],
   })
 
-  // TODO: Odd idx numbers not visible while scrolling
 
   return (
     <section
@@ -91,7 +91,7 @@ export default function Qualities() {
     >
       <div className="flex flex-col">
         {qualities.map((quality, i) => {
-          const targetScale = 1 - (qualities.length - i) * 0.05
+          const targetScale = 1 - (qualities.length - i ) * 0.05
           return (
             <Quality
               quality={quality}
