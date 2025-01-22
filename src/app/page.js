@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <ScrollTracker />
-      {/* <PreLoader /> */}
+      <PreLoader />
       <Header />
       <Hero />
       <About />
