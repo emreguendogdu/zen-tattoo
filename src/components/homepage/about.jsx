@@ -30,9 +30,9 @@ export default function About() {
       ref={targetRef}
       className="relative min-h-[400vh] w-full -my-[100vh] z-10 bg-white border-black border"
     >
-      <div className="sticky top-0 flex pt-8 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
-        <div className="w-full flex flex-col md:flex-row gap-4 md:gap-8 h-[70vh]">
-          <div className="absolute brightness-75 md:brightness-100 bottom-8 -translate-y-1/2 right-sectionX -z-10 md:z-0 md:static md:translate-y-0">
+      <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
+        <div className="w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
+          <div className="flex justify-center">
             <motion.div
               key={firstPart}
               {...anim(ELEMENT_VARIANTS)}
@@ -41,7 +41,7 @@ export default function About() {
               {firstPart ? <Heart /> : <Diamond />}
             </motion.div>
           </div>
-          <div className="md:basis-1/3 relative h-[35vh] md:h-full overflow-hidden">
+          <div className="md:basis-1/3 relative h-full md:h-full overflow-hidden">
             <motion.div
               className={`relative w-full h-full`}
               key={firstPart}
@@ -71,12 +71,12 @@ export default function About() {
           <motion.div
             key={firstPart}
             {...anim(ELEMENT_VARIANTS)}
-            className="relative md:basis-1/2 md:flex-1 p-2 md:p-0 h-[65vh] md:h-auto [&_p]:text-justify flex flex-col gap-4"
+            className="relative md:basis-1/2 md:flex-1 p-2 md:p-0 h-full md:h-auto [&_p]:text-justify flex flex-col gap-1 md:gap-4"
           >
-            <h2 className="text-center md:text-left drop-shadow-sm border-b border-b-neutral-300 pb-2 mb-0 w-fit">
+            <h2 className="self-center md:self-left drop-shadow-sm border-b border-b-neutral-300 pb-1 md:pb-2 mb-0 w-fit">
               {firstPart ? "Our Mission" : "Meet the Team."}
             </h2>
-            <div className="">
+            <div className="flex-1">
               {firstPart ? (
                 <p>
                   At Zen Tattoo, we turn your ideas into lasting works of art.
@@ -89,12 +89,9 @@ export default function About() {
                   and craftsmanship, ensuring that each piece is as unique as
                   the person wearing it. From intricate designs to minimalist
                   details, we bring your vision to life with{" "}
-                  <strong>expertise and passion.</strong> We’ve created a safe,
-                  welcoming space where you can feel at ease throughout the
-                  process. From consultation to the final result, your comfort
-                  and satisfaction are our top priorities. Let us help you
-                  create something meaningful{" "}
-                  <strong>— art that stays with you.</strong>
+                  <strong>expertise and passion.</strong> Your comfort and
+                  satisfaction are our top priorities. Let's create something
+                  meaningful <strong>— art that stays with you.</strong>
                 </p>
               ) : (
                 <p>
@@ -113,7 +110,7 @@ export default function About() {
                 </p>
               )}
             </div>
-            <ul className="relative w-full h-full flex flex-col justify-end gap-2 [&>li>p]:about-value-text">
+            <ul className="relative w-full flex gap-4 justify-center md:flex-col md:justify-end md:gap-2 [&>li>p]:about-value-text">
               {firstPart ? (
                 <>
                   <li>

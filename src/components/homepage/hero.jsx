@@ -120,7 +120,7 @@ export default function Hero() {
           <div className="">
             {/* Display hours and minutes, and GMT + 3 */}
             <motion.p
-              className="mb-2 text-left text-sm font-display font-light leading-loose"
+              className="mb-2 text-left text-xs md:text-sm font-display font-light leading-loose"
               {...anim(Y_VARIANTS, delay + 0.1)}
             >
               10AM - 8PM (mon - sat)
