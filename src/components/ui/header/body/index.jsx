@@ -39,7 +39,6 @@ export default function Body({
             onMouseOver={() => setSelectedLink({ isActive: true, index })}
             onMouseDown={() => setIsActive((prev) => !prev)}
             onMouseLeave={() => setSelectedLink({ isActive: false, index })}
-            className="no-underline text-3xl font-light tracking-tighter uppercase md:text-8xl"
           >
             <motion.p
               variants={blur}
@@ -49,7 +48,7 @@ export default function Body({
                   ? "nothovered"
                   : "hovered"
               }
-              className="flex"
+              className="flex text-3xl md:text-8xl tracking-tighter uppercase"
             >
               {getChars(title)}
             </motion.p>

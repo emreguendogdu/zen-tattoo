@@ -73,8 +73,8 @@ export default function About() {
             {...anim(ELEMENT_VARIANTS)}
             className="relative md:basis-1/2 md:flex-1 p-2 md:p-0 h-full md:h-auto [&_p]:text-justify flex flex-col gap-1 md:gap-4"
           >
-            <h2 className="self-center md:self-left drop-shadow-sm border-b border-b-neutral-300 pb-1 md:pb-2 mb-0 w-fit">
-              {firstPart ? "Our Mission" : "Meet the Team."}
+            <h2 className="self-center md:self-baseline drop-shadow-sm border-b border-b-neutral-300 pb-1 md:pb-2 mb-0 w-fit">
+              {firstPart ? "Our Mission" : "Meet the Team"}
             </h2>
             <div className="flex-1">
               {firstPart ? (

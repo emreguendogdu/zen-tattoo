@@ -33,6 +33,7 @@ const TEXT_VARIANTS = {
   animate: (i) => ({
     y: ["132%", "0%", "0%", "-800%"],
     scale: [1, 1, 1, 0.8],
+    opacity: [1, 1, 1, 0],
     transition: {
       delay: i,
       duration: PRELOADER_DURATION + 0.5,
@@ -49,8 +50,6 @@ const onAnimationComplete = () => {
 }
 
 export default function PreLoader() {
-  const texts = ["Zen Tattoo", "2024®"]
-
   // TODO Use SVG instead of PNG. Make it responsive.
   return (
     <motion.div
@@ -61,7 +60,10 @@ export default function PreLoader() {
     >
       <div className="absolute w-full h-full flex flex-wrap">
         {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className="relative w-1/2 h-1/2 brightness-[0.2]">
+          <div
+            key={`plptrn_${index}`}
+            className="relative w-1/2 h-1/2 brightness-[0.1]"
+          >
             <Image
               src="/images/patterns.png"
               alt="Preloader Japanese style pattern background"
@@ -72,20 +74,22 @@ export default function PreLoader() {
           </div>
         ))}
       </div>
-      {texts.map((text, index) => (
-        <motion.div
-          key={index}
-          className="overflow-hidden"
-          {...anim(OVERFLOW_VARIANTS)}
+      <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
+        <motion.p
+          className="relative uppercase h1 text-neutral-100 drop-shadow-custom"
+          {...anim(TEXT_VARIANTS)}
         >
-          <motion.p
-            className="relative capitalize h1 text-neutral-100 drop-shadow-custom"
-            {...anim(TEXT_VARIANTS, index * 0.1)}
-          >
-            {text}
-          </motion.p>
-        </motion.div>
-      ))}
+          Zen Tattoo
+        </motion.p>
+      </motion.div>
+      <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
+        <motion.p
+          className="relative lowercase text-3xl tracking-tight font-light text-neutral-100 drop-shadow-custom"
+          {...anim(TEXT_VARIANTS, 0.1)}
+        >
+          - since 2005 -
+        </motion.p>
+      </motion.div>
     </motion.div>
   )
 }
