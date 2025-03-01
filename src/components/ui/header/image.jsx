@@ -18,7 +18,6 @@ export default function NavImage({ isActive, src }) {
     >
       <Image
         src={src === "home" ? HomeImage : ContactImage}
-        blurDataURL={`/images/lazy-loading/${src}-small.webp`}
         width={200}
         height={200}
         className="md:w-full md:h-full md:object-cover"
@@ -28,6 +27,7 @@ export default function NavImage({ isActive, src }) {
         aria-hidden
         loading="lazy"
         decoding="async"
+        placeholder="blur"
       />
     </motion.div>
   )

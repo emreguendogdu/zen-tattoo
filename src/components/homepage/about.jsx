@@ -7,9 +7,6 @@ import { Diamond } from "../icons/diamond"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
 
-import DogMakingTattooGif from "@/../public/images/dogmakingtattoo.gif"
-import ManMakingTattooGif from "@/../public/images/manmakingtattoo.gif"
-
 export default function About() {
   const [firstPart, setFirstPart] = useState(true)
   const targetRef = useRef(null)
@@ -51,24 +48,26 @@ export default function About() {
               {...anim(ELEMENT_VARIANTS)}
             >
               <Image
-                src={ManMakingTattooGif}
+                src="/images/manmakingtattoo.gif"
+                placeholder="blur"
+                blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 fill
                 className={`w-full h-full object-cover ${
                   firstPart && "invisible"
                 }`}
                 alt="Man making tattoo gif"
-                placeholder="blur"
                 loading="lazy"
                 decoding="async"
               />
               <Image
-                src={DogMakingTattooGif}
+                src="/images/dogmakingtattoo.gif"
+                placeholder="blur"
+                blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 fill
                 className={`w-full h-full object-cover ${
                   !firstPart && "invisible"
                 }`}
                 alt="A man disguised as a dog making tattoo gif"
-                placeholder="blur"
                 loading="lazy"
                 decoding="async"
               />
