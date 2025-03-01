@@ -83,17 +83,17 @@ export default function About() {
       className="relative min-h-[400dvh] w-full -my-[100dvh] z-10 bg-white border-black border"
     >
       <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
-        <div className="w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
-          <div className="flex justify-center">
+        <div className="relative w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
+          <div className="flex justify-center md:absolute md:right-0 md:top-0">
             <motion.div
               key={index}
               {...anim(ELEMENT_VARIANTS)}
-              className="relative text-5xl md:text-8xl"
+              className="relative text-5xl md:text-5xl"
             >
               {icon}
             </motion.div>
           </div>
-          <div className="md:basis-1/3 relative h-full max-h-[300px] md:max-h-none overflow-hidden">
+          <div className="md:basis-1/2 relative h-full max-h-[300px] md:max-h-none overflow-hidden">
             <motion.div key={index} {...anim(ELEMENT_VARIANTS)}>
               <Image
                 src={imageSrc}
