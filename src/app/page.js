@@ -7,7 +7,6 @@ import Hero from "@/components/homepage/hero"
 import Gallery from "@/components/homepage/gallery"
 import PreLoader from "@/components/ui/preloader"
 import Qualities from "@/components/homepage/qualities"
-import Testimonials from "@/components/testimonials"
 import { useSectionInView } from "@/context/SectionInViewContext"
 import ScrollTracker from "@/components/ui/scrollTracker"
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Hero />
       <About />
       <Qualities />
-      <Testimonials />
       <div ref={galleryAndContactRef}>
         <Gallery />
         <Contact />
