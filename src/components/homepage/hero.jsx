@@ -125,12 +125,13 @@ export default function Hero() {
               className="mb-2 text-left text-xs md:text-sm font-display font-light leading-loose"
               {...anim(Y_VARIANTS, delay + 0.1)}
             >
-              10AM - 8PM (mon - sat)
+              10AM - 8PM <span className='whitespace-nowrap'>(mon - sat)</span>
             </motion.p>
           </div>
           <motion.p
             className="h0 mb-0 text-right md:text-left"
             {...anim(Y_VARIANTS, delay + 0.1)}
+            style={{ fontSize: "clamp(2.5rem, 6.5vw, 6rem)" }}
           >
             Zen Tattoo
           </motion.p>
