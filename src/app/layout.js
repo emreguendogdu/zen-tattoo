@@ -3,7 +3,6 @@ import localFont from "next/font/local"
 
 import "./globals.css"
 import GlobalProvider from "@/context/GlobalProvider"
-import SmoothScrolling from "@/components/SmoothScrolling"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -39,9 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${PPMonument.variable} ${inter.className}`}>
-        <GlobalProvider>
-          <SmoothScrolling>{children}</SmoothScrolling>
-        </GlobalProvider>
+        <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
   )

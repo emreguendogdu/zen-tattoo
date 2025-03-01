@@ -1,6 +1,6 @@
 "use client"
 
-import { useScroll, motion, useMotionValueEvent } from "framer-motion"
+import { useScroll, motion, useMotionValueEvent } from "motion/react"
 import { useRef, useState, useCallback } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"

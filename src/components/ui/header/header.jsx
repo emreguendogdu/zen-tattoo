@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Nav from "./nav"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 import { opacity, background } from "./anim"
 import { useSectionInView } from "@/context/SectionInViewContext"
 
@@ -17,6 +17,10 @@ export default function Header() {
   const [isActive, setIsActive] = useState(false)
   const pathname = usePathname()
   const { galleryAndContactIsInView } = useSectionInView()
+
+  useEffect(() => {
+    console.log("backgroundIsBlack", backgroundIsBlack)
+  }, [backgroundIsBlack])
   useEffect(() => {
     setIsActive(false)
   }, [pathname])

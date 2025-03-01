@@ -1,6 +1,6 @@
 "use client"
 import useDeviceSize from "@/hooks/useDeviceSize"
-import { useScroll, useTransform, motion } from "framer-motion"
+import { useScroll, useTransform, motion } from "motion/react"
 import Image from "next/image"
 import { useRef } from "react"
 import Image1 from "@/../public/images/gallery/1.webp"
@@ -40,7 +40,7 @@ export default function Gallery() {
   return (
     <motion.section
       className="min-h-[600vh] relative bg-black px-2"
-      id="images"
+      id="gallery"
       ref={targetRef}
     >
       <motion.div

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import Image from "next/image"
 import HomeImage from "@/../public/images/home.webp"
 import ContactImage from "@/../public/images/contact.webp"
@@ -9,7 +9,18 @@ const opacity = {
   closed: { opacity: 0, transition: { duration: 0.35 } },
 }
 
-export default function NavImage({ isActive, src }) {
+const imageSelect = (src) => {
+  switch (src) {
+    case "home":
+      return HomeImage
+    case "contact":
+      return ContactImage
+    default:
+      return HomeImage
+  }
+}
+
+export default function NavImage({ isActive, src, alt }) {
   return (
     <motion.div
       className="hidden md:block md:w-[400px] md:h-[450px] relative"
@@ -17,14 +28,11 @@ export default function NavImage({ isActive, src }) {
       animate={isActive ? "open" : "closed"}
     >
       <Image
-        src={src === "home" ? HomeImage : ContactImage}
+        src={imageSelect(src)}
         width={200}
         height={200}
         className="md:w-full md:h-full md:object-cover"
-        alt={
-          src === "home" ? "Zen Tattoo studio stairs" : "Two men handshaking"
-        }
-        aria-hidden
+        alt={alt}
         loading="lazy"
         decoding="async"
         placeholder="blur"

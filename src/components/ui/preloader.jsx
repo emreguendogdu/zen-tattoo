@@ -1,8 +1,9 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
 import PatternsImage from "@/../public/images/patterns.png"
+import { useScrollContext } from "@/context/ScrollContext"
 
 export const PRELOADER_DURATION = 2
 
@@ -44,22 +45,22 @@ const TEXT_VARIANTS = {
   }),
 }
 
-const onAnimationComplete = () => {
-  if (!window) return
-
-  document.body.style.overflow = "visible"
-  document.getElementById("loader").style.display = "none"
-  window.scrollTo(0, 0)
-}
-
 export default function PreLoader() {
-  // TODO Use SVG instead of PNG. Make it responsive.
+  const { setAllowScroll } = useScrollContext()
+
+  function handleAnimationComplete() {
+    if (!window) return
+    setAllowScroll(true)
+
+    window.scrollTo(0, 0)
+  }
+
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 w-full h-[110dvh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
-      id="loader"
+      id="preloader"
       {...anim(SECTION_VARIANTS)}
-      onAnimationComplete={onAnimationComplete}
+      onAnimationComplete={handleAnimationComplete}
     >
       <div
         id="background-patterns"

@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "framer-motion"
+import { useInView } from "motion/react"
 import React, { createContext, useContext, useRef } from "react"
 
 const SectionInViewContext = createContext()

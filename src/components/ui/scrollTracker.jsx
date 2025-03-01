@@ -1,8 +1,8 @@
 "use client"
 
 import { useSectionInView } from "@/context/SectionInViewContext"
-import { motion } from "framer-motion"
-import { useScroll } from "framer-motion"
+import { motion } from "motion/react"
+import { useScroll } from "motion/react"
 
 export default function ScrollTracker() {
   const { scrollYProgress } = useScroll()

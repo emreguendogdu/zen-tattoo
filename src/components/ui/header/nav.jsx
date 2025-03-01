@@ -1,12 +1,22 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { height } from "./anim"
 import Body from "./body"
 import { useState } from "react"
 import NavImage from "./image"
 
 const links = [
-  { title: "Home", href: "/#home", src: "home" },
-  { title: "Contact", href: "/#contact", src: "contact" },
+  {
+    title: "Home",
+    href: "/#home",
+    src: "home",
+    alt: "Zen Tattoo studio stairs",
+  },
+  {
+    title: "Contact",
+    href: "/#contact",
+    src: "contact",
+    alt: "Two men handshaking",
+  },
 ]
 
 export default function Nav({ setIsActive }) {
