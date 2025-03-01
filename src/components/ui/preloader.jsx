@@ -30,9 +30,9 @@ const SECTION_VARIANTS = {
 }
 
 const TEXT_VARIANTS = {
-  initial: { y: "132%" },
+  initial: { y: "200%" },
   animate: (i) => ({
-    y: ["132%", "0%", "0%", "-800%"],
+    y: ["200%", "0%", "0%", "-800%"],
     scale: [1, 1, 1, 0.8],
     opacity: [1, 1, 1, 0],
     transition: {
