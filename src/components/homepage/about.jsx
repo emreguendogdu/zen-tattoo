@@ -7,6 +7,9 @@ import { Diamond } from "../icons/diamond"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
 
+import DogMakingTattooGif from "@/../public/images/dogmakingtattoo.gif"
+import ManMakingTattooGif from "@/../public/images/manmakingtattoo.gif"
+
 export default function About() {
   const [firstPart, setFirstPart] = useState(true)
   const targetRef = useRef(null)
@@ -48,26 +51,27 @@ export default function About() {
               {...anim(ELEMENT_VARIANTS)}
             >
               <Image
-                src="/images/manmakingtattoo.gif"
+                src={ManMakingTattooGif}
                 fill
                 className={`w-full h-full object-cover ${
                   firstPart && "invisible"
                 }`}
                 alt="Man making tattoo gif"
+                placeholder="blur"
                 loading="lazy"
                 decoding="async"
               />
               <Image
-                src="/images/dogmakingtattoo.gif"
+                src={DogMakingTattooGif}
                 fill
                 className={`w-full h-full object-cover ${
                   !firstPart && "invisible"
                 }`}
                 alt="A man disguised as a dog making tattoo gif"
+                placeholder="blur"
                 loading="lazy"
                 decoding="async"
               />
-              {/* TODO: set LazyLoadingImage, get first frames as blurred img */}
             </motion.div>
           </div>
           <motion.div

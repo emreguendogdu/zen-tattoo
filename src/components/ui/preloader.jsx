@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
+import PatternsImage from "@/../public/images/patterns.png"
 
 export const PRELOADER_DURATION = 2
 
@@ -65,10 +66,11 @@ export default function PreLoader() {
             className="relative w-1/2 h-1/2 brightness-[0.1]"
           >
             <Image
-              src="/images/patterns.png"
+              src={PatternsImage}
               alt="Preloader Japanese style pattern background"
               fill
               priority
+              placeholder="blur"
               className="object-cover"
             />
           </div>

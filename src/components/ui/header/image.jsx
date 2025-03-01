@@ -22,7 +22,9 @@ export default function NavImage({ isActive, src }) {
         width={200}
         height={200}
         className="md:w-full md:h-full md:object-cover"
-        alt="image"
+        alt={
+          src === "home" ? "Zen Tattoo studio stairs" : "Two men handshaking"
+        }
         aria-hidden
         loading="lazy"
         decoding="async"
