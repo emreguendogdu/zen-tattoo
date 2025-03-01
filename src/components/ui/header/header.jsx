@@ -19,9 +19,6 @@ export default function Header() {
   const { galleryAndContactIsInView } = useSectionInView()
 
   useEffect(() => {
-    console.log("backgroundIsBlack", backgroundIsBlack)
-  }, [backgroundIsBlack])
-  useEffect(() => {
     setIsActive(false)
   }, [pathname])
 
