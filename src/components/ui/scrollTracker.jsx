@@ -11,12 +11,12 @@ export default function ScrollTracker() {
   return (
     <motion.div
       id="scroll-tracker"
-      className={`fixed bottom-0 left-0 bg-black w-screen h-2 z-[50] origin-bottom-left ${
+      className={`fixed bottom-0 right-0 bg-black h-screen w-1 md:w-2 z-[50] origin-top-right ${
         galleryAndContactIsInView ? "bg-neutral-900" : "bg-black"
       }`}
       //   only y
       style={{
-        scaleX: scrollYProgress,
+        scaleY: scrollYProgress,
       }}
       aria-hidden
     />

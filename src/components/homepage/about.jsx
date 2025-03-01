@@ -28,7 +28,7 @@ export default function About() {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[400vh] w-full -my-[100vh] z-10 bg-white border-black border"
+      className="relative min-h-[400dvh] w-full -my-[100dvh] z-10 bg-white border-black border"
     >
       <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
         <div className="w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
@@ -41,12 +41,8 @@ export default function About() {
               {firstPart ? <Heart /> : <Diamond />}
             </motion.div>
           </div>
-          <div className="md:basis-1/3 relative h-full md:h-full overflow-hidden">
-            <motion.div
-              className={`relative w-full h-full`}
-              key={firstPart}
-              {...anim(ELEMENT_VARIANTS)}
-            >
+          <div className="md:basis-1/3 relative h-full max-h-[300px] md:max-h-none overflow-hidden">
+            <motion.div key={firstPart} {...anim(ELEMENT_VARIANTS)}>
               <Image
                 src="/images/manmakingtattoo.gif"
                 placeholder="blur"
@@ -83,7 +79,7 @@ export default function About() {
             </h2>
             <div className="flex-1">
               {firstPart ? (
-                <p>
+                <p className="text-[0.925rem] md:text-base">
                   At Zen Tattoo, we turn your ideas into lasting works of art.
                   <strong>
                     {" "}
@@ -100,24 +96,22 @@ export default function About() {
                   <strong>— art that stays with you.</strong>
                 </p>
               ) : (
-                <p>
-                  Our journey, which began in a small sculpture workshop back in
-                  2002, has evolved ever since we crossed paths with the art of
-                  tattooing in 2005. From Istanbul to Izmir, we have been
-                  passionately sharing the art of tattooing with enthusiasts
-                  across the regions. With a dedication to quality artisanship,{" "}
+                <p className="text-[0.925rem] md:text-base">
+                  Our journey began in a small sculpture workshop back in 2002,
+                  and has evolved ever since we crossed paths with the art of
+                  tattooing in 2005. From Istanbul to Izmir, we&apos;ve been
+                  passionately sharing our art with enthusiasts across the
+                  regions. With a dedication to quality artisanship,{" "}
                   <strong>
                     we strive to deliver excellence in every design we create.
                   </strong>{" "}
                   Whether you&apos;re seeking intricate detail or bold
                   statements, our team is committed to bringing your vision to
-                  life on your skin. Get in touch with us to experience the
-                  fusion of artistry and professionalism in the world of
-                  tattoos.
+                  life on your skin.
                 </p>
               )}
             </div>
-            <ul className="relative w-full flex gap-4 justify-center md:flex-col md:justify-end md:gap-2 [&>li>p]:about-value-text">
+            <ul className="absolute bottom-0 md:bottom-auto md:relative w-full flex gap-4 justify-start md:flex-col md:justify-end md:gap-2 [&>li>p]:about-value-text">
               {firstPart ? (
                 <>
                   <li>
@@ -145,7 +139,7 @@ export default function About() {
               )}
             </ul>
             <div className="absolute bottom-0 right-0">
-              <p className="text-neutral-400 text-sm font-display font-thin tracking-normal">
+              <p className="text-neutral-400 text-xs md:text-sm font-display font-thin tracking-normal">
                 {firstPart ? 1 : 2}/2
               </p>
             </div>

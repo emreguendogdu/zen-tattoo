@@ -54,12 +54,15 @@ export default function PreLoader() {
   // TODO Use SVG instead of PNG. Make it responsive.
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 w-full h-[110vh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
+      className="fixed top-0 left-0 right-0 w-full h-[110dvh] bg-black flex flex-col items-center justify-center text-center z-50 select-none"
       id="loader"
       {...anim(SECTION_VARIANTS)}
       onAnimationComplete={onAnimationComplete}
     >
-      <div className="absolute w-full h-full flex flex-wrap">
+      <div
+        id="background-patterns"
+        className="absolute w-full h-full flex flex-wrap"
+      >
         {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={`plptrn_${index}`}

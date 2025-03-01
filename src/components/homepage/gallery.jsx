@@ -28,13 +28,13 @@ export default function Gallery() {
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", isMobile ? "-450%" : "-130%"]
+    ["0%", isMobile ? "-550%" : "-130%"]
   )
 
   const SMALLER_ON_LAST_PART = useTransform(
     scrollYProgress,
     [0.75, 1],
-    [1, 0.45]
+    [1, isMobile ? 0.85 : 0.45]
   )
 
   // TODO: FIX - %99 images not appearing as useDimensions is not working properly
@@ -59,7 +59,7 @@ export default function Gallery() {
           {Array.from({ length: images.length }).map((_, i) => (
             <li
               key={i}
-              className="relative min-w-[250px] md:min-w-[400px] min-h-[75vh] h-full"
+              className="relative min-w-[300px] md:min-w-[400px] min-h-[75vh] h-full"
             >
               <Image
                 src={images[i]}

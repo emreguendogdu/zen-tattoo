@@ -79,7 +79,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
             />
           </motion.div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center px-2 md:px-0">
           <h3 className="mt-4 mb-2 text-center">{quality.title}</h3>
           <p className="max-w-screen-md md:text-lg text-center">
             {quality.content}
