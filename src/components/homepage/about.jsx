@@ -95,8 +95,9 @@ export default function About() {
                   the person wearing it. From intricate designs to minimalist
                   details, we bring your vision to life with{" "}
                   <strong>expertise and passion.</strong> Your comfort and
-                  satisfaction are our top priorities. Let's create something
-                  meaningful <strong>— art that stays with you.</strong>
+                  satisfaction are our top priorities. Let&apos;s create
+                  something meaningful{" "}
+                  <strong>— art that stays with you.</strong>
                 </p>
               ) : (
                 <p>
@@ -108,10 +109,11 @@ export default function About() {
                   <strong>
                     we strive to deliver excellence in every design we create.
                   </strong>{" "}
-                  Whether you're seeking intricate detail or bold statements,
-                  our team is committed to bringing your vision to life on your
-                  skin. Get in touch with us to experience the fusion of
-                  artistry and professionalism in the world of tattoos.
+                  Whether you&apos;re seeking intricate detail or bold
+                  statements, our team is committed to bringing your vision to
+                  life on your skin. Get in touch with us to experience the
+                  fusion of artistry and professionalism in the world of
+                  tattoos.
                 </p>
               )}
             </div>
