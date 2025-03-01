@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <>
       <ScrollTracker />
-      <PreLoader />
+      {/* <PreLoader />
       <Header />
-      <Hero />
+      <Hero />*/}
       <About />
       <Qualities />
       <div ref={galleryAndContactRef}>

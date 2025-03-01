@@ -45,8 +45,10 @@ const TEXT_VARIANTS = {
 }
 
 const onAnimationComplete = () => {
-  if (window == undefined) return
+  if (!window) return
+
   document.body.style.overflow = "visible"
+  document.getElementById("loader").style.display = "none"
   window.scrollTo(0, 0)
 }
 

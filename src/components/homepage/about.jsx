@@ -104,6 +104,7 @@ export default function About() {
                 alt={imageAlt}
                 loading="lazy"
                 decoding="async"
+                unoptimized
               />
             </motion.div>
           </div>
