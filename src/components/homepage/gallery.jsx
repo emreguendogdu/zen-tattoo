@@ -3,8 +3,16 @@ import useDeviceSize from "@/hooks/useDeviceSize"
 import { useScroll, useTransform, motion } from "framer-motion"
 import Image from "next/image"
 import { useRef } from "react"
+import Image1 from "@/../public/images/gallery/1.webp"
+import Image2 from "@/../public/images/gallery/2.webp"
+import Image3 from "@/../public/images/gallery/3.webp"
+import Image4 from "@/../public/images/gallery/4.webp"
+import Image5 from "@/../public/images/gallery/5.webp"
+import Image6 from "@/../public/images/gallery/6.webp"
+import Image7 from "@/../public/images/gallery/7.webp"
+import Image8 from "@/../public/images/gallery/8.webp"
 
-const imagesLength = 8
+const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8]
 
 export default function Gallery() {
   const targetRef = useRef(null)
@@ -48,18 +56,20 @@ export default function Gallery() {
           style={{ x: X_FOR_HORIZONTAL_SCROLL }}
           className="relative flex gap-2"
         >
-          {Array.from({ length: imagesLength }).map((_, i) => (
+          {Array.from({ length: images.length }).map((_, i) => (
             <li
               key={i}
               className="relative min-w-[250px] md:min-w-[400px] min-h-[75vh] h-full"
             >
               <Image
-                src={`/images/${i + 1}.webp`}
+                src={images[i]}
                 className="w-full h-full object-cover"
                 alt="Tattoo project"
                 aria-hidden
                 fill
-                blurDataURL={`/images/lazy-loading/${i + 1}-small.webp`}
+                placeholder="blur"
+                loading="lazy"
+                decoding="async"
               />
             </li>
           ))}

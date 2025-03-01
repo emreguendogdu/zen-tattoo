@@ -2,6 +2,19 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { useRef } from "react"
+import Quality1Image from "@/../public/images/qualities/1.webp"
+import Quality2Image from "@/../public/images/qualities/2.webp"
+import Quality3Image from "@/../public/images/qualities/3.webp"
+import Quality4Image from "@/../public/images/qualities/4.webp"
+import Quality5Image from "@/../public/images/qualities/5.webp"
+
+const images = [
+  Quality1Image,
+  Quality2Image,
+  Quality3Image,
+  Quality4Image,
+  Quality5Image,
+]
 
 const qualities = [
   {
@@ -55,12 +68,14 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
             style={{ scale: IMAGE_SCALE }}
           >
             <Image
-              src={`/images/_${index + 1}.webp`}
+              src={images[index]}
               className="object-cover rounded-t-2xl"
               alt="Tattoo related"
               aria-hidden
               fill
-              blurDataURL={`/images/lazy-loading/_${index + 1}-small.webp`}
+              placeholder="blur"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>
@@ -82,7 +97,6 @@ export default function Qualities() {
     offset: ["start start", "end end"],
   })
 
-
   return (
     <section
       id="qualities"
@@ -91,7 +105,7 @@ export default function Qualities() {
     >
       <div className="flex flex-col">
         {qualities.map((quality, i) => {
-          const targetScale = 1 - (qualities.length - i ) * 0.05
+          const targetScale = 1 - (qualities.length - i) * 0.05
           return (
             <Quality
               quality={quality}

@@ -54,7 +54,8 @@ export default function About() {
                   firstPart && "invisible"
                 }`}
                 alt="Man making tattoo gif"
-                unoptimized // As animated, it won't be optimized
+                loading="lazy"
+                decoding="async"
               />
               <Image
                 src="/images/dogmakingtattoo.gif"
@@ -63,7 +64,8 @@ export default function About() {
                   !firstPart && "invisible"
                 }`}
                 alt="A man disguised as a dog making tattoo gif"
-                unoptimized // As animated, it won't be optimized
+                loading="lazy"
+                decoding="async"
               />
               {/* TODO: set LazyLoadingImage, get first frames as blurred img */}
             </motion.div>

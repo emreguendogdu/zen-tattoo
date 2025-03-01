@@ -61,6 +61,6 @@ html::-webkit-scrollbar {
   }
 
   .about-value-text {
-    @apply font-display uppercase font-bold text-left text-sm;
+    @apply font-display uppercase font-medium text-left text-sm;
   }
 }

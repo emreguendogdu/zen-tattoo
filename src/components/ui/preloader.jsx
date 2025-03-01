@@ -76,7 +76,7 @@ export default function PreLoader() {
       </div>
       <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
         <motion.p
-          className="relative uppercase h1 text-neutral-100 drop-shadow-custom"
+          className="relative uppercase h1 text-neutral-100 drop-shadow-custom leading-none"
           {...anim(TEXT_VARIANTS)}
         >
           Zen Tattoo
@@ -84,7 +84,7 @@ export default function PreLoader() {
       </motion.div>
       <motion.div className="overflow-hidden" {...anim(OVERFLOW_VARIANTS)}>
         <motion.p
-          className="relative lowercase text-3xl tracking-tight font-light text-neutral-100 drop-shadow-custom"
+          className="relative lowercase text-xl tracking-tight font-light text-neutral-100 drop-shadow-custom leading-none"
           {...anim(TEXT_VARIANTS, 0.1)}
         >
           - since 2005 -

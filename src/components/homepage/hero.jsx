@@ -5,6 +5,8 @@ import Image from "next/image"
 import { anim } from "@/utils/utils"
 import { PRELOADER_DURATION } from "../ui/preloader"
 
+import PlantsImage from "@/../public/images/plants.webp"
+
 const delay = -0.75
 
 // TODO - Make all delays in variable (array of objects)
@@ -53,13 +55,13 @@ export default function Hero() {
             {...anim(PLANTS_X_VARIANTS, delay)}
           >
             <Image
-              src="/images/plants.webp"
+              src={PlantsImage}
               alt="Plants"
               width={400}
               height={500}
               className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
               priority
-              blurDataURL={`/images/lazy-loading/plants-small.webp`}
+              placeholder="blur"
             />
           </motion.div>
         </div>

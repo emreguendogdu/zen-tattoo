@@ -1,4 +1,5 @@
 import Image from "next/image"
+import FrameImage from "@/../public/images/contact-frame-img.webp"
 
 const monthNames = [
   "January",
@@ -27,14 +28,16 @@ export default function Contact() {
       className="bg-black text-white relative px-sectionX-m md:px-sectionX w-full h-screen flex justify-center items-center gap-8"
     >
       <Image
-        src="/images/contact-frame-img.webp"
-        alt="Man making tattoo."
+        src={FrameImage}
+        alt="Man making tattoo"
         className="object-cover rounded-custom-contact"
         width={252}
         height={360}
-        blurDataURL={`/images/lazy-loading/contact-frame-img-small.webp`}
+        placeholder="blur"
+        loading="lazy"
+        decoding="async"
       />
-      <div className='max-w-screen-sm'>
+      <div className="max-w-screen-sm">
         <h2 className="h3 w-fit">
           One last touch to let your vision come true
         </h2>

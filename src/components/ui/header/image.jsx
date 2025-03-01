@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
+import HomeImage from "@/../public/images/home.webp"
+import ContactImage from "@/../public/images/contact.webp"
 
 const opacity = {
   initial: { opacity: 0 },
@@ -15,13 +17,15 @@ export default function NavImage({ isActive, src }) {
       animate={isActive ? "open" : "closed"}
     >
       <Image
-        src={`/images/${src}.webp`}
+        src={src === "home" ? HomeImage : ContactImage}
         blurDataURL={`/images/lazy-loading/${src}-small.webp`}
         width={200}
         height={200}
         className="md:w-full md:h-full md:object-cover"
         alt="image"
         aria-hidden
+        loading="lazy"
+        decoding="async"
       />
     </motion.div>
   )
