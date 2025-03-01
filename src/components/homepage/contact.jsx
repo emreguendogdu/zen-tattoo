@@ -1,7 +1,7 @@
 import Image from "next/image"
 import FrameImage from "@/../public/images/contact-frame-img.webp"
 
-const monthNames = [
+const months = [
   "January",
   "February",
   "March",
@@ -15,11 +15,6 @@ const monthNames = [
   "November",
   "December",
 ]
-
-const currentDate = new Date()
-const monthIndex = currentDate.getMonth() // Get month (0-11)
-const monthName = monthNames[monthIndex]
-const formattedMonth = `${monthName}`
 
 export default function Contact() {
   return (
@@ -48,7 +43,8 @@ export default function Contact() {
       </div>
       <footer className="absolute left-0 right-0 bottom-2 flex flex-col md:flex-row justify-between items-center px-sectionX-m md:px-sectionX text-justify md:text-left [&>p]:font-light [&>p]:text-xs">
         <p className="mb-2 md:mb-0">
-          Available: <span className="text-primary">{formattedMonth}</span>{" "}
+          Available:{" "}
+          <span className="text-primary">{months[new Date().getMonth()]}</span>{" "}
           (Filling up fast, book now!)
         </p>
         <p>

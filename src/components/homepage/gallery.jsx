@@ -37,8 +37,6 @@ export default function Gallery() {
     [1, isMobile ? 0.85 : 0.45]
   )
 
-  // TODO: FIX - %99 images not appearing as useDimensions is not working properly
-
   return (
     <motion.section
       className="min-h-[600vh] relative bg-black px-2"

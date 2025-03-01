@@ -119,8 +119,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
-          <div className="">
-            {/* Display hours and minutes, and GMT + 3 */}
+          <div>
             <motion.p
               className="mb-2 text-left text-xs md:text-sm font-display font-light leading-loose"
               {...anim(Y_VARIANTS, delay + 0.1)}
