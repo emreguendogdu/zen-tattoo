@@ -46,7 +46,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-[250vh]" ref={targetRef}>
       <motion.div
-        className="sticky top-0 h-screen flex px-2 md:px-0 justify-center items-center"
+        className="sticky top-0 h-[100dvh] flex px-2 md:px-0 justify-center items-center"
         style={{ opacity }}
       >
         <div className="overflow-hidden absolute inset-0">
@@ -125,7 +125,7 @@ export default function Hero() {
               className="mb-2 text-left text-xs md:text-sm font-display font-light leading-loose"
               {...anim(Y_VARIANTS, delay + 0.1)}
             >
-              10AM - 8PM <span className='whitespace-nowrap'>(mon - sat)</span>
+              10AM - 8PM <span className="whitespace-nowrap">(mon - sat)</span>
             </motion.p>
           </div>
           <motion.p
