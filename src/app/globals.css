@@ -5,7 +5,6 @@
 :root {
   --header-bg: white;
   --header-text: black;
-  --primary-color: #6495ed;
 }
 
 body {
@@ -50,13 +49,13 @@ html::-webkit-scrollbar {
     @apply h3;
   }
   p {
-    @apply tracking-[-0.01225em] leading-relaxed text-base md:text-lg;
+    @apply tracking-[-0.01225em] leading-relaxed;
   }
 }
 
 @layer components {
   .button {
-    @apply bg-primary text-black border border-primary rounded-lg box-border cursor-pointer uppercase text-sm leading-7 px-12 py-3 w-fit font-bold active:outline-none hover:outline-none hover:brightness-125 transition-all;
+    @apply bg-white text-black border border-primary rounded-lg box-border cursor-pointer uppercase text-sm leading-7 px-12 py-2 w-fit font-bold active:outline-none hover:outline-none hover:brightness-125 transition-all;
   }
 
   .about-value-text {

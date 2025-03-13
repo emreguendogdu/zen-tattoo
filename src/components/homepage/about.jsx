@@ -15,7 +15,7 @@ const ELEMENT_VARIANTS = {
 
 const CONTENT = [
   {
-    title: "Our Mission",
+    title: "Mission",
     icon: <Heart />,
     imageSrc: "/images/manmakingtattoo.gif",
     imageAlt: "Man making tattoo gif",
@@ -38,7 +38,7 @@ const CONTENT = [
     values: ["Love", "Passion", "Expertise"],
   },
   {
-    title: "Meet the Team",
+    title: "Dedication",
     icon: <Diamond />,
     imageSrc: "/images/dogmakingtattoo.gif",
     imageAlt: "A man disguised as a dog making tattoo gif",
