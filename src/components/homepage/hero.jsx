@@ -118,14 +118,20 @@ export default function Hero() {
             </motion.svg>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
-          <div>
+        <div className="absolute bottom-0 left-0 right-0 flex gap-4 justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
+          <div className="relative mb-1 md:mb-2">
             <motion.p
-              className="mb-2 text-left text-xs md:text-sm font-display font-light leading-loose"
+              className="text-left text-xs md:text-sm font-display font-light leading-loose w-full block md:hidden"
               {...anim(Y_VARIANTS, delay + 0.1)}
             >
-              10AM - 8PM <span className="whitespace-nowrap">(mon - sat)</span>
+              1923 N Michigan St, Plymouth, IN
             </motion.p>
+            <div className="relative w-full md:w-80">
+              <video autoPlay muted loop className="w-full h-full object-cover">
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
           <motion.p
             className="h0 mb-0 text-right md:text-left"

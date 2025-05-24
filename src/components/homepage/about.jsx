@@ -6,6 +6,7 @@ import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
+import { useDarkSectionRef } from "@/context/HeaderColorContext"
 
 const ELEMENT_VARIANTS = {
   initial: { y: 100, opacity: 0 },
@@ -62,7 +63,8 @@ const CONTENT = [
 
 export default function About() {
   const [index, setIndex] = useState(0)
-  const targetRef = useRef(null)
+  const targetRef = useDarkSectionRef()
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "center start"],
@@ -80,7 +82,7 @@ export default function About() {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[400dvh] w-full -my-[100dvh] z-10 bg-white border-black border"
+      className="relative min-h-[400dvh] w-full -my-[100dvh] z-10 bg-black text-white"
     >
       <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
         <div className="relative w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">

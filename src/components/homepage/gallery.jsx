@@ -2,7 +2,6 @@
 import useDeviceSize from "@/hooks/useDeviceSize"
 import { useScroll, useTransform, motion } from "motion/react"
 import Image from "next/image"
-import { useRef } from "react"
 import Image1 from "@/../public/images/gallery/1.webp"
 import Image2 from "@/../public/images/gallery/2.webp"
 import Image3 from "@/../public/images/gallery/3.webp"
@@ -11,11 +10,12 @@ import Image5 from "@/../public/images/gallery/5.webp"
 import Image6 from "@/../public/images/gallery/6.webp"
 import Image7 from "@/../public/images/gallery/7.webp"
 import Image8 from "@/../public/images/gallery/8.webp"
+import { useDarkSectionRef } from "@/context/HeaderColorContext"
 
 const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8]
 
 export default function Gallery() {
-  const targetRef = useRef(null)
+  const targetRef = useDarkSectionRef()
   const [width, height] = useDeviceSize()
 
   const { scrollYProgress } = useScroll({
@@ -39,9 +39,9 @@ export default function Gallery() {
 
   return (
     <motion.section
-      className="min-h-[600vh] relative bg-black px-2"
-      id="gallery"
       ref={targetRef}
+      id="gallery"
+      className="min-h-[600vh] relative bg-black px-2"
     >
       <motion.div
         className="sticky top-0 h-screen overflow-hidden pt-16 md:pt-24"

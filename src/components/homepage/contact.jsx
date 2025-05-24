@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import FrameImage from "@/../public/images/contact-frame-img.webp"
+import { useDarkSectionRef } from "@/context/HeaderColorContext"
 
 const months = [
   "January",
@@ -17,8 +20,10 @@ const months = [
 ]
 
 export default function Contact() {
+  const sectionRef = useDarkSectionRef()
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="bg-black text-white relative px-sectionX-m md:px-sectionX w-full h-screen flex flex-col md:flex-row justify-center items-center gap-8"
     >
@@ -32,7 +37,7 @@ export default function Contact() {
         loading="lazy"
         decoding="async"
       />
-      <div className="max-w-screen-sm flex flex-col justify-center items-center md:items-start md:gap-4">
+      <div className="max-w-screen-sm flex flex-col justify-center items-center md:items-start md:gap-4 overflow-hidden">
         <h2 className="md:text-left h3 w-fit">
           One last touch to
           <br /> bring your vision

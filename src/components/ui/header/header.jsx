@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import Nav from "./nav"
 import { AnimatePresence, motion } from "motion/react"
 import { opacity, background } from "./anim"
-import { useSectionInView } from "@/context/SectionInViewContext"
+import { useHeaderColor } from "@/context/HeaderColorContext"
 
 const burgerTransitions =
   "transition-all after:transition-all before:transition-all duration-1000 after:duration-1000 before:duration-1000 ease-[cubic-bezier(0.76, 0, 0.24, 1)] after:ease-[cubic-bezier(0.76, 0, 0.24, 1)] before:ease-[cubic-bezier(0.76, 0, 0.24, 1)]"
@@ -16,7 +16,7 @@ const burgerIsActive =
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
   const pathname = usePathname()
-  const { galleryAndContactIsInView } = useSectionInView()
+  const { isDarkBg } = useHeaderColor()
 
   useEffect(() => {
     setIsActive(false)
@@ -34,18 +34,26 @@ export default function Header() {
   }, [])
   return (
     <header
-      className={`font-display font-light tracking-tighter z-40 p-sectionX-m md:p-sectionX w-full fixed box-border transition-all bg-white text-black ${
-        galleryAndContactIsInView && "!bg-black !text-white"
+      className={` z-40 p-sectionX-m md:p-sectionX w-full fixed box-border transition-all bg-white text-black ${
+        isDarkBg && "!bg-black !text-white"
       }`}
     >
       <div
         className={
-          "relative flex justify-between text-center text-xs uppercase md:text-base [&>p]:m-0"
+          "relative flex justify-between text-left md:text-center text-xs uppercase md:text-base [&>p]:m-0"
         }
       >
-        <Link href="/" className="no-underline">
-          Zen Tattoo
-        </Link>
+        <div className="flex items-center gap-4 md:gap-8">
+          <Link
+            href="/"
+            className="font-display font-light tracking-tighter no-underline"
+          >
+            Zen Tattoo
+          </Link>
+          <p className="text-xs font-display font-light leading-loose normal-case hidden md:block">
+            1923 N Michigan St, Plymouth, IN
+          </p>
+        </div>
         <div
           onMouseDown={() => setIsActive(!isActive)}
           className="flex items-center gap-2 cursor-pointer"
@@ -53,15 +61,20 @@ export default function Header() {
           <div
             className={`w-6 after:block before:block after:w-full before:w-full after:h-[1px] before:h-[1px] after:bg-black before:bg-black after:relative before:relative after:-top-1 before:top-1 ${burgerTransitions} ${
               isActive ? burgerIsActive : ""
-            } ${galleryAndContactIsInView && "before:!bg-white after:!bg-white"}`}
+            } ${isDarkBg && "before:!bg-white after:!bg-white"}`}
           />
           <div className="relative flex [&>p:nth-of-type(2)]:absolute [&>p:nth-of-type(2)]:opacity-0">
-            <motion.p variants={opacity} animate={isActive ? "closed" : "open"}>
+            <motion.p
+              variants={opacity}
+              animate={isActive ? "closed" : "open"}
+              className="font-display font-light tracking-tighter"
+            >
               Menu
             </motion.p>
             <motion.p
               variants={opacity}
               animate={!isActive ? "closed" : "open"}
+              className="font-display font-light tracking-tighter"
             >
               Close
             </motion.p>

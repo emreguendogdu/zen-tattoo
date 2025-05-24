@@ -1,10 +1,10 @@
 import { ScrollProvider } from "./ScrollContext"
-import { SectionInViewProvider } from "./SectionInViewContext"
+import { HeaderColorProvider } from "./HeaderColorContext"
 
 export default function GlobalProvider({ children }) {
   return (
     <ScrollProvider>
-      <SectionInViewProvider>{children}</SectionInViewProvider>
+      <HeaderColorProvider>{children}</HeaderColorProvider>
     </ScrollProvider>
   )
 }

@@ -31,16 +31,16 @@ const SECTION_VARIANTS = {
 }
 
 const TEXT_VARIANTS = {
-  initial: { y: "200%" },
+  initial: { y: 0, scale: 1, opacity: 1 },
   animate: (i) => ({
-    y: ["200%", "0%", "0%", "-800%"],
-    scale: [1, 1, 1, 0.8],
-    opacity: [1, 1, 1, 0],
+    y: "-800%",
+    scale: 0.75,
+    opacity: 0,
     transition: {
       delay: i,
-      duration: PRELOADER_DURATION + 0.5,
+      duration: PRELOADER_DURATION + 0.3,
       ease: [0.35, 0, 0.35, 1],
-      times: [0, 0.3, 0.84, 1],
+      times: [0.84, 1],
     },
   }),
 }
