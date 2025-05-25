@@ -17,7 +17,9 @@ const transition = (i) => ({
   ease: [0, 0.55, 0.45, 1],
 })
 
-const DESCRIPTION_TEXT = `At our tattoo studio, we offer a unique experience with experienced artists, personalized designs, and high-quality equipment. Whether you're looking to get your first tattoo or adding to your collection, our team is dedicated to bringing your vision to life.`
+const DESCRIPTION_TEXT = `We offer a unique experience with experienced artists, personalized designs, and high-quality equipment. 
+
+Whether you're looking to get your first tattoo or adding to your collection, our team is dedicated to bringing your vision to life.`
 
 export default function Hero() {
   const targetRef = useRef(null)
@@ -63,7 +65,7 @@ export default function Hero() {
                 repeatType: "reverse",
                 delay: PRELOADER_DURATION + 0.2,
               }}
-              className="relative"
+              className="relative -z-10"
             >
               <Image
                 src={PlantsImage}
@@ -87,7 +89,7 @@ export default function Hero() {
             </motion.h1>
           </div>
           <div className="overflow-hidden">
-            <motion.p className="font-light text-balance md:text-base overflow-hidden text-center">
+            <motion.p className="font-light text-balance text-xs md:text-base overflow-hidden text-center">
               {DESCRIPTION_TEXT.split(" ").map((word, i) => {
                 return (
                   <React.Fragment key={`dsc__${i}`}>
@@ -102,33 +104,6 @@ export default function Hero() {
               })}
             </motion.p>
           </div>
-          {/* <div className="relative overflow-hidden flex justify-center items-center">
-            <motion.svg
-              width="40px"
-              height="100%"
-              viewBox="0 0 247 390"
-              style={{
-                fillRule: "evenodd",
-                clipRule: "evenodd",
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-                strokeMiterlimit: 1.5,
-              }}
-              className="w-7 md:w-10 mb-2"
-              {...anim(Y_VARIANTS, delay + 0.85)}
-            >
-              <path
-                id="wheel"
-                d="M123.359,79.775l0,72.843"
-                className="fill-none stroke-black stroke-[30px] md:stroke-[20px] animate-scroll"
-              />
-              <path
-                id="mouse"
-                d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
-                className="fill-none stroke-black stroke-[5px] md:stroke-[3px]"
-              />
-            </motion.svg>
-          </div> */}
         </div>
         <div className="absolute bottom-0 left-0 right-0 flex gap-4 justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
           <div className="relative mb-1 md:mb-2">

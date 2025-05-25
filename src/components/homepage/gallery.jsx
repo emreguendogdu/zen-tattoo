@@ -1,5 +1,5 @@
 "use client"
-import useDeviceSize from "@/hooks/useDeviceSize"
+import { useRef, useState, useLayoutEffect, useEffect } from "react"
 import { useScroll, useTransform, motion } from "motion/react"
 import Image from "next/image"
 import Image1 from "@/../public/images/gallery/1.webp"
@@ -11,46 +11,71 @@ import Image6 from "@/../public/images/gallery/6.webp"
 import Image7 from "@/../public/images/gallery/7.webp"
 import Image8 from "@/../public/images/gallery/8.webp"
 import { useDarkSectionRef } from "@/context/HeaderColorContext"
+import useIsMobile from "@/hooks/useIsMobile"
 
 const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8]
 
 export default function Gallery() {
   const targetRef = useDarkSectionRef()
-  const [width, height] = useDeviceSize()
+  const isMobile = useIsMobile()
+  const ulRef = useRef(null)
+  const [maxTranslate, setMaxTranslate] = useState(0)
+  const [sectionHeight, setSectionHeight] = useState(0)
+
+  useLayoutEffect(() => {
+    if (!ulRef.current) return
+    const totalWidth = ulRef.current.scrollWidth
+    const viewportWidth =
+      ulRef.current.parentElement?.clientWidth || window.innerWidth
+    const computedMax = totalWidth - viewportWidth
+    setMaxTranslate(computedMax)
+    setSectionHeight(computedMax * 1.618 + window.innerHeight)
+  }, [isMobile])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (!ulRef.current) return
+      const totalWidth = ulRef.current.scrollWidth
+      const viewportWidth =
+        ulRef.current.parentElement?.clientWidth || window.innerWidth
+      const computedMax = totalWidth - viewportWidth
+      setMaxTranslate(computedMax)
+      setSectionHeight(computedMax * 1.618 + window.innerHeight)
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [isMobile])
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["10% start", "end end"],
+    offset: ["25% start", "end end"],
   })
-
-  const isMobile = width < 768
 
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", isMobile ? "-550%" : "-120%"]
+    [0, -maxTranslate]
   )
 
-  const SMALLER_ON_LAST_PART = useTransform(
-    scrollYProgress,
-    [0.75, 1],
-    [1, isMobile ? 0.85 : 0.45]
-  )
+  const SECTION_SCALE_END = useTransform(scrollYProgress, [0.75, 1], [1, 0.75])
 
   return (
     <motion.section
       ref={targetRef}
       id="gallery"
-      className="min-h-[600vh] relative bg-black px-2"
+      className="relative bg-black px-2"
+      style={{ height: sectionHeight }}
     >
       <motion.div
         className="sticky top-0 h-screen overflow-hidden pt-16 md:pt-24"
         style={{
-          scale: SMALLER_ON_LAST_PART,
+          scale: SECTION_SCALE_END,
         }}
       >
         <h2 className="text-white md:mb-8">Gallery</h2>
         <motion.ul
+          ref={ulRef}
           style={{ x: X_FOR_HORIZONTAL_SCROLL }}
           className="relative flex gap-2"
         >

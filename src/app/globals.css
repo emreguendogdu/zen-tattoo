@@ -49,13 +49,13 @@ html::-webkit-scrollbar {
     @apply h3;
   }
   p {
-    @apply tracking-[-0.01225em] leading-relaxed;
+    @apply tracking-[-0.01225em] text-xs md:text-base leading-relaxed;
   }
 }
 
 @layer components {
   .button {
-    @apply bg-white text-black border border-primary rounded-full box-border cursor-pointer uppercase text-sm leading-7 px-12 md:px-24 py-2 w-fit font-bold;
+    @apply font-bold bg-white text-black border border-primary rounded-full box-border cursor-pointer uppercase text-sm leading-7 px-12 md:px-24 py-2 w-fit;
   }
 
   .about-value-text {

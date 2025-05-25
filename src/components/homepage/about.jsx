@@ -1,12 +1,15 @@
 "use client"
 
 import { useScroll, motion, useMotionValueEvent } from "motion/react"
-import { useRef, useState, useCallback } from "react"
+import { useState, useCallback } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
 import { anim } from "@/utils/utils"
 import Image from "next/image"
 import { useDarkSectionRef } from "@/context/HeaderColorContext"
+
+import ManMakingTattooGif from "@/../public/images/manmakingtattoo.gif"
+import DogMakingTattooGif from "@/../public/images/dogmakingtattoo.gif"
 
 const ELEMENT_VARIANTS = {
   initial: { y: 100, opacity: 0 },
@@ -18,7 +21,7 @@ const CONTENT = [
   {
     title: "Mission",
     icon: <Heart />,
-    imageSrc: "/images/manmakingtattoo.gif",
+    imageSrc: ManMakingTattooGif,
     imageAlt: "Man making tattoo gif",
     description: (
       <>
@@ -28,12 +31,16 @@ const CONTENT = [
           Every tattoo is designed with care, reflecting your personality,
           story, and style.{" "}
         </strong>
+        <br />
+        <br />
         Our skilled artists are dedicated to precision, creativity, and
         craftsmanship, ensuring that each piece is as unique as the person
-        wearing it. From intricate designs to minimalist details, we bring your
-        vision to life with <strong>expertise and passion.</strong> Your comfort
-        and satisfaction are our top priorities. Let&apos;s create something
-        meaningful <strong>— art that stays with you.</strong>
+        wearing it.
+        <br />
+        <br />
+        From intricate designs to minimalist details, we bring your vision to
+        life with <strong>expertise and passion.</strong> Let&apos;s create
+        something meaningful <strong>— art that stays with you.</strong>
       </>
     ),
     values: ["Love", "Passion", "Expertise"],
@@ -41,20 +48,24 @@ const CONTENT = [
   {
     title: "Dedication",
     icon: <Diamond />,
-    imageSrc: "/images/dogmakingtattoo.gif",
+    imageSrc: DogMakingTattooGif,
     imageAlt: "A man disguised as a dog making tattoo gif",
     description: (
       <>
         Our journey began in a small sculpture workshop back in 2002, and has
         evolved ever since we crossed paths with the art of tattooing in 2005.
+        <br />
+        <br />
         From Istanbul to Izmir, we&apos;ve been passionately sharing our art
-        with enthusiasts across the regions. With a dedication to quality
-        artisanship,{" "}
+        with enthusiasts across the regions.
+        <br />
+        <br />
+        With a dedication to quality artisanship,{" "}
         <strong>
           we strive to deliver excellence in every design we create.
         </strong>{" "}
-        Whether you&apos;re seeking intricate detail or bold statements, our
-        team is committed to bringing your vision to life on your skin.
+        Whether you&apos;re seeking intricate detail or bold statements,
+        we&apos;re committed to make your vision come to life.
       </>
     ),
     values: ["Vision", "Details", "Artisanship"],
@@ -119,7 +130,7 @@ export default function About() {
               {title}
             </h2>
             <div className="flex-1">
-              <p className="text-[0.925rem] md:text-base">{description}</p>
+              <p className="text-sm md:text-base">{description}</p>
             </div>
             <ul className="absolute bottom-0 md:bottom-auto md:relative w-full flex gap-4 justify-start md:flex-col md:justify-end md:gap-2 [&>li>p]:about-value-text">
               {values.map((value) => (

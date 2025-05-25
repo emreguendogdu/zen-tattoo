@@ -81,9 +81,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
         </div>
         <div className="flex flex-col items-center justify-center px-2 md:px-0">
           <h3 className="mt-4 mb-2 text-center">{quality.title}</h3>
-          <p className="max-w-screen-md text-center">
-            {quality.content}
-          </p>
+          <p className="max-w-screen-md text-center">{quality.content}</p>
         </div>
       </motion.div>
     </div>
@@ -100,7 +98,7 @@ export default function Qualities() {
   return (
     <section
       id="qualities"
-      className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-[4rem] -my-[100vh] z-20"
+      className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] -my-[100vh] z-20"
       ref={targetRef}
     >
       <div className="flex flex-col">
