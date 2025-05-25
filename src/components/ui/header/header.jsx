@@ -43,7 +43,7 @@ export default function Header() {
           "relative flex justify-between text-left md:text-center text-xs uppercase md:text-base [&>p]:m-0"
         }
       >
-        <div className="flex items-center gap-4 md:gap-8">
+        <div className="flex items-center gap-4 md:gap-16">
           <Link
             href="/"
             className="font-display font-light tracking-tighter no-underline"

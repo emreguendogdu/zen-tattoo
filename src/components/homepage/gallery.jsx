@@ -28,7 +28,7 @@ export default function Gallery() {
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", isMobile ? "-550%" : "-130%"]
+    ["0%", isMobile ? "-550%" : "-120%"]
   )
 
   const SMALLER_ON_LAST_PART = useTransform(

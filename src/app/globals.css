@@ -62,3 +62,11 @@ html::-webkit-scrollbar {
     @apply font-display uppercase font-medium text-left text-xs md:text-sm whitespace-nowrap;
   }
 }
+
+.drag-none {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}

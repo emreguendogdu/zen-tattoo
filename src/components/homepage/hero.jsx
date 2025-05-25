@@ -54,15 +54,27 @@ export default function Hero() {
             className="absolute right-0 top-0"
             {...anim(PLANTS_X_VARIANTS, delay)}
           >
-            <Image
-              src={PlantsImage}
-              alt="Plants"
-              width={400}
-              height={500}
-              className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
-              priority
-              placeholder="blur"
-            />
+            <motion.div
+              initial={{ x: -5 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse",
+                delay: PRELOADER_DURATION + 0.2,
+              }}
+              className="relative"
+            >
+              <Image
+                src={PlantsImage}
+                alt="Plants"
+                width={400}
+                height={500}
+                className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
+                priority
+                placeholder="blur"
+              />
+            </motion.div>
           </motion.div>
         </div>
         <div className="max-w-screen-md flex flex-col gap-4">
@@ -90,7 +102,7 @@ export default function Hero() {
               })}
             </motion.p>
           </div>
-          <div className="relative overflow-hidden flex justify-center items-center">
+          {/* <div className="relative overflow-hidden flex justify-center items-center">
             <motion.svg
               width="40px"
               height="100%"
@@ -116,7 +128,7 @@ export default function Hero() {
                 className="fill-none stroke-black stroke-[5px] md:stroke-[3px]"
               />
             </motion.svg>
-          </div>
+          </div> */}
         </div>
         <div className="absolute bottom-0 left-0 right-0 flex gap-4 justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
           <div className="relative mb-1 md:mb-2">
@@ -135,7 +147,6 @@ export default function Hero() {
           </div>
           <motion.p
             className="h0 mb-0 text-right md:text-left"
-            {...anim(Y_VARIANTS, delay + 0.1)}
             style={{ fontSize: "clamp(2.5rem, 6.5vw, 6rem)" }}
           >
             Zen Tattoo
