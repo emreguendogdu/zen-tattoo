@@ -12,9 +12,13 @@ module.exports = {
           "0%": { transform: "translateY(0)" },
           "30%": { transform: "translateY(60px)" },
         },
+        border: {
+          to: { "--border-angle": "360deg" },
+        },
       },
       animation: {
         scroll: "scroll 2s ease infinite",
+        border: "border 4s linear infinite",
       },
       borderRadius: {
         "custom-contact": "50% 50% 50% 50% / 60% 60% 0% 0%",

@@ -145,10 +145,7 @@ export default function Hero() {
               </video>
             </div>
           </div>
-          <motion.p
-            className="h0 mb-0 text-right md:text-left"
-            style={{ fontSize: "clamp(2.5rem, 6.5vw, 6rem)" }}
-          >
+          <motion.p className="h0 mb-0 text-right md:text-left">
             Zen Tattoo
           </motion.p>
         </div>

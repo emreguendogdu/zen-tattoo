@@ -33,7 +33,7 @@ export default function Nav({ setIsActive }) {
       animate="enter"
       exit="exit"
     >
-      <div className="mb-20 flex">
+      <div className="mb-20 flex justify-between">
         <div>
           <Body
             links={links}

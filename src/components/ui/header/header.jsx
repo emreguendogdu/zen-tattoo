@@ -50,7 +50,7 @@ export default function Header() {
           >
             Zen Tattoo
           </Link>
-          <p className="text-xs font-display font-light leading-loose normal-case hidden md:block">
+          <p className="text-xs font-display font-light normal-case hidden md:block">
             1923 N Michigan St, Plymouth, IN
           </p>
         </div>

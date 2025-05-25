@@ -29,13 +29,12 @@ export default function NavImage({ isActive, src, alt }) {
     >
       <Image
         src={imageSelect(src)}
-        width={200}
-        height={200}
-        className="md:w-full md:h-full md:object-cover"
         alt={alt}
         loading="lazy"
         decoding="async"
         placeholder="blur"
+        fill
+        className="object-cover"
       />
     </motion.div>
   )

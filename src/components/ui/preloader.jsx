@@ -42,7 +42,7 @@ export default function PreLoader() {
   return (
     <motion.div
       className="
-    fixed inset-0 bg-black flex items-center justify-center z-[99]"
+    fixed inset-0 bg-black flex items-center justify-center z-[99] select-none"
       id="preloader"
       onAnimationComplete={handleAnimationComplete}
       {...anim(SECTION_VARIANTS)}

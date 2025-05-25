@@ -29,7 +29,7 @@ export default function Body({
   setIsActive,
 }) {
   return (
-    <div className="flex gap-16 flex-wrap md:max-w-screen-xl mt-20">
+    <div className="flex flex-col gap-16 flex-wrap md:max-w-screen-xl mt-20">
       {links.map((link, index) => {
         const { title, href } = link
         return (
@@ -40,7 +40,7 @@ export default function Body({
             onMouseDown={() => setIsActive((prev) => !prev)}
             onMouseLeave={() => setSelectedLink({ isActive: false, index })}
           >
-            <motion.p
+            <motion.span
               variants={blur}
               initial="initial"
               animate={
@@ -48,10 +48,10 @@ export default function Body({
                   ? "nothovered"
                   : "hovered"
               }
-              className="flex text-3xl md:text-8xl tracking-tighter uppercase"
+              className="flex h0 font-light tracking-tighter uppercase"
             >
               {getChars(title)}
-            </motion.p>
+            </motion.span>
           </Link>
         )
       })}
