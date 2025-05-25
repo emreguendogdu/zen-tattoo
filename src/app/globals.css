@@ -55,7 +55,7 @@ html::-webkit-scrollbar {
 
 @layer components {
   .button {
-    @apply bg-white text-black border border-primary rounded-lg box-border cursor-pointer uppercase text-sm leading-7 px-12 py-2 w-fit font-bold active:outline-none hover:outline-none hover:brightness-125 transition-all;
+    @apply bg-white text-black border border-primary rounded-full box-border cursor-pointer uppercase text-sm leading-7 px-12 md:px-24 py-2 w-fit font-bold;
   }
 
   .about-value-text {
@@ -69,4 +69,14 @@ html::-webkit-scrollbar {
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+}
+
+.h0 {
+  font-size: clamp(2.5rem, 6.5vw, 6rem);
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
 }
