@@ -12,13 +12,13 @@ import ScrollTracker from "@/components/ui/scrollTracker"
 export default function Home() {
   return (
     <>
-      {/* <ScrollTracker />
+      <ScrollTracker />
       <PreLoader />
       <Header />
       <Hero />
       <About />
       <Qualities />
-      <Gallery /> */}
+      <Gallery />
       <Contact />
     </>
   )
