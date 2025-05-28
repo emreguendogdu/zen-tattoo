@@ -97,7 +97,7 @@ export default function About() {
       ref={targetRef}
       className="relative min-h-[350dvh] w-full -my-[100dvh] z-10 bg-black text-white"
     >
-      <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
+      <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:px-sectionX">
         <div className="relative w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
           <div className="flex justify-center md:absolute md:right-0 md:top-0">
             <motion.div

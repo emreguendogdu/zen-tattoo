@@ -64,7 +64,7 @@ export default function Gallery() {
     <motion.section
       ref={targetRef}
       id="gallery"
-      className="relative bg-black px-2"
+      className="relative bg-black px-2 pb-sectionY-m md:pb-sectionY"
       style={{ height: sectionHeight }}
     >
       <motion.div
