@@ -139,12 +139,12 @@ const NumberLoader = () => {
 const ImageLoader = () => {
   const progress = useMotionValue(0)
   const [imageIndex, setImageIndex] = useState(0)
-  const totalImages = images.length
+  const totalImages = images.length + 1 // Smoother animation ending (+1)
 
   useEffect(() => {
     const controls = animate(progress, 1, {
       duration: PRELOADER_DURATION,
-      ease: "easeOut",
+      ease: "linear",
       onUpdate: (latest) => {
         const index = Math.floor(latest * totalImages)
         setImageIndex(index >= totalImages ? totalImages - 1 : index)
@@ -155,13 +155,24 @@ const ImageLoader = () => {
   }, [progress, totalImages])
 
   return (
-    <MotionImage
-      key={imageIndex}
-      src={images[imageIndex]}
-      width={200}
-      height={300}
-      className="object-cover drag-none select-none"
-    />
+    <div className="relative w-[200px] h-[300px]">
+      {images.map((src, idx) => (
+        <MotionImage
+          key={src}
+          src={src}
+          fill
+          initial={{ opacity: 0, zIndex: 0 }}
+          animate={{
+            opacity: imageIndex === idx ? 1 : 0,
+            zIndex: imageIndex === idx ? 10 : 0,
+            transition: { duration: 0.2, ease: "linear" },
+          }}
+          className="object-cover drag-none select-none absolute inset-0 transition-all"
+          aria-hidden={imageIndex !== idx}
+          tabIndex={imageIndex === idx ? 0 : -1}
+        />
+      ))}
+    </div>
   )
 }
 

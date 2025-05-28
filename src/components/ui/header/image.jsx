@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import Image from "next/image"
-import HomeImage from "@/../public/images/home.webp"
-import ContactImage from "@/../public/images/contact.webp"
+import HomeImage from "@/../public/images/nav/home.webp"
+import ContactImage from "@/../public/images/nav/contact.webp"
 
 const opacity = {
   initial: { opacity: 0 },

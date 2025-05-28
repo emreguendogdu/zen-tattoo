@@ -8,8 +8,8 @@ import { anim } from "@/utils/utils"
 import Image from "next/image"
 import { useDarkSectionRef } from "@/context/HeaderColorContext"
 
-import ManMakingTattooGif from "@/../public/images/manmakingtattoo.gif"
-import DogMakingTattooGif from "@/../public/images/dogmakingtattoo.gif"
+import AboutImage1 from "@/../public/images/about/1.webp"
+import AboutImage2 from "@/../public/images/about/2.jpg"
 
 const ELEMENT_VARIANTS = {
   initial: { y: 100, opacity: 0 },
@@ -21,8 +21,9 @@ const CONTENT = [
   {
     title: "Mission",
     icon: <Heart />,
-    imageSrc: ManMakingTattooGif,
-    imageAlt: "Man making tattoo gif",
+    imageSrc: AboutImage1,
+    blurDataURL: "L8D9#O~q00-;ofD%j[_39FM{Rjj[",
+    imageAlt: "Man making tattoo",
     description: (
       <>
         At Zen Tattoo, we turn your ideas into lasting works of art.
@@ -48,8 +49,9 @@ const CONTENT = [
   {
     title: "Dedication",
     icon: <Diamond />,
-    imageSrc: DogMakingTattooGif,
-    imageAlt: "A man disguised as a dog making tattoo gif",
+    imageSrc: AboutImage2,
+    blurDataURL: "L57w?1IUD%Rj_34nay?b9FD%j[~q",
+    imageAlt: "Tattoo is being made",
     description: (
       <>
         Our journey began in a small sculpture workshop back in 2002, and has
@@ -87,13 +89,13 @@ export default function About() {
     useCallback((latest) => setIndex(latest <= 0.5 ? 0 : 1), [])
   )
 
-  const { title, icon, imageSrc, imageAlt, description, values } =
+  const { title, icon, imageSrc, blurDataURL, imageAlt, description, values } =
     CONTENT[index]
 
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[400dvh] w-full -my-[100dvh] z-10 bg-black text-white"
+      className="relative min-h-[350dvh] w-full -my-[100dvh] z-10 bg-black text-white"
     >
       <div className="sticky top-0 h-screen flex pt-12 md:pt-32 px-sectionX-m md:pl-sectionX-m md:pr-sectionX">
         <div className="relative w-full flex flex-col md:flex-row gap-2 md:gap-8 md:h-[70vh]">
@@ -111,13 +113,12 @@ export default function About() {
               <Image
                 src={imageSrc}
                 placeholder="blur"
-                blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                blurDataURL={blurDataURL}
                 fill
                 className="w-full h-full object-cover"
                 alt={imageAlt}
                 loading="lazy"
                 decoding="async"
-                unoptimized
               />
             </motion.div>
           </div>
