@@ -155,7 +155,7 @@ const ImageLoader = () => {
   }, [progress, totalImages])
 
   return (
-    <div className="relative w-[200px] h-[300px]">
+    <div className="relative w-[100px] h-[150px] md:w-[200px] md:h-[300px]">
       {images.map((src, idx) => (
         <MotionImage
           key={src}

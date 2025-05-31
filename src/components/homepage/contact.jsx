@@ -28,7 +28,7 @@ export default function Contact() {
       <section
         ref={sectionRef}
         id="contact"
-        className="bg-black text-white relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[90vh] h-full pt-sectionY-m md:pt-sectionY"
+        className="bg-black text-white relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[90vh] h-full"
       >
         <div className="relative w-full h-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-8 md:gap-32 overflow-hidden">
           <div className="flex flex-col overflow-hidden order-2 md:order-1">
@@ -43,7 +43,7 @@ export default function Contact() {
               we&apos;ve set for you.
             </p>
             <Link
-              className="block button text-white mt-8 transition-all duration-500 ease-in-out [background:linear-gradient(45deg,#172033,theme(colors.neutral.800)_50%,#172033)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.neutral.700/.48)_80%,_theme(colors.neutral.600)_86%,_theme(colors.neutral.800)_90%,_theme(colors.neutral.600)_94%,_theme(colors.neutral.700/.48))_border-box] rounded-2xl border border-transparent animate-border hover:brightness-125"
+              className="button text-white mt-8 "
               href="https://www.linkedin.com/in/emregnd/"
               target="_blank"
             >

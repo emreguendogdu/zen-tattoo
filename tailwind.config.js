@@ -42,8 +42,10 @@ module.exports = {
       spacing: {
         "sectionX-m": "12px",
         sectionX: "20px",
-        "sectionY-m": "32px",
-        sectionY: "64px",
+        "sectionY-m": "64px",
+        sectionY: "256px",
+        "sectionY-m-half": "32px",
+        "sectionY-half": "128px",
       },
     },
   },

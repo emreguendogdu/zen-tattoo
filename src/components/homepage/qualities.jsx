@@ -55,7 +55,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
 
   return (
     <div
-      className="sticky top-0 h-screen flex justify-center items-center"
+      className="sticky top-0 h-[80vh] flex justify-center py-sectionY-half-m md:py-sectionY-half"
       ref={qualityTargetRef}
     >
       <motion.div
@@ -98,7 +98,7 @@ export default function Qualities() {
   return (
     <section
       id="qualities"
-      className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] -my-[100vh] z-20"
+      className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] z-20"
       ref={targetRef}
     >
       <div className="flex flex-col">

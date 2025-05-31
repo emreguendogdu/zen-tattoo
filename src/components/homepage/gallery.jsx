@@ -49,7 +49,7 @@ export default function Gallery() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["25% start", "end end"],
+    offset: ["start start", "end end"],
   })
 
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
