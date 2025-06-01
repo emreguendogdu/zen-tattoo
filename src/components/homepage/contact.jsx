@@ -72,7 +72,7 @@ export default function Contact() {
 
 function Footer() {
   return (
-    <footer className="relative left-0 right-0 py-4 flex flex-col md:flex-row justify-between items-center px-sectionX-m md:px-sectionX text-justify md:text-left [&>p]:font-light [&>p]:text-xs bg-black text-white">
+    <footer className="relative left-0 right-0 py-4 flex flex-col md:flex-row justify-between items-end md:items-center px-sectionX-m md:px-sectionX text-justify md:text-left [&>p]:font-light [&>p]:text-xs bg-black text-white">
       <Availability />
       <p>
         © 2024 — All rights reserved. Made by{" "}

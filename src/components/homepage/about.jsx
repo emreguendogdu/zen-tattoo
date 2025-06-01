@@ -127,30 +127,38 @@ export default function About() {
               className="flex flex-col md:basis-1/2 gap-4 justify-between"
               style={{ order: index === 0 ? 2 : 1 }}
             >
-              <div className="flex justify-between gap-4 items-center">
-                <h2
-                  className="text-2xl font-bold w-fit md:self-start mb-0"
-                  style={{ order: index === 0 ? 1 : 2 }}
-                >
-                  {item.title}
-                </h2>
-                <div
-                  className="text-5xl self-center md:self-start text-neutral-500"
-                  aria-label="Mission icon"
-                  style={{ order: index === 0 ? 2 : 1 }}
-                >
-                  {item.icon}
-                </div>
-              </div>
-              <p
-                className="text-justify md:max-w-lg"
+              <div
+                className="flex flex-col gap-4 w-full"
                 style={{
-                  textAlign: index === 0 ? "left" : "right",
-                  alignSelf: index === 0 ? "flex-start" : "flex-end",
+                  alignItems: index === 0 ? "flex-start" : "flex-end",
+                  justifyContent: isMobile && index === 0 ? "start" : "end",
                 }}
               >
-                {item.description}
-              </p>
+                <div className="flex justify-between gap-4 items-center w-full">
+                  <h2
+                    className="text-2xl font-bold w-fit md:self-start mb-0"
+                    style={{ order: index === 0 ? 1 : 2 }}
+                  >
+                    {item.title}
+                  </h2>
+                  <div
+                    className="text-5xl self-center md:self-start text-neutral-500"
+                    aria-label="Mission icon"
+                    style={{ order: index === 0 ? 2 : 1 }}
+                  >
+                    {item.icon}
+                  </div>
+                </div>
+                <p
+                  className="text-justify md:max-w-lg"
+                  style={{
+                    textAlign: index === 0 ? "left" : "right",
+                    alignSelf: index === 0 ? "flex-start" : "flex-end",
+                  }}
+                >
+                  {item.description}
+                </p>
+              </div>
               <ul
                 className="flex gap-4 md:gap-2 md:flex-col mt-2 w-full"
                 style={{
