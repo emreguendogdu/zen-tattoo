@@ -1,6 +1,11 @@
 "use client"
 
-import { useScroll, useTransform, motion } from "motion/react"
+import {
+  useScroll,
+  useTransform,
+  motion,
+  useMotionValueEvent,
+} from "motion/react"
 import { forwardRef, useRef } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
@@ -11,7 +16,7 @@ import useIsMobile from "@/hooks/useIsMobile"
 import AboutImage1 from "@/../public/images/about/1.webp"
 import AboutImage2 from "@/../public/images/about/2.jpg"
 
-const YParallaxAmount = 128 - 50
+const YParallaxAmount = 128 - 50 - 25
 const CONTENT = [
   {
     title: "Mission",
@@ -75,6 +80,10 @@ export default function About() {
     offset: ["start end", "end end"],
   })
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest)
+  })
+
   const isMobile = useIsMobile()
   // Parallax for each block
   const y1 = useTransform(
@@ -94,7 +103,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[250dvh] md:h-[180dvh] bg-black text-white z-10 py-sectionY-half-m md:py-sectionY-half -mt-[100dvh]"
+      className="relative w-full h-fit md:h-[180dvh] bg-black text-white z-10 py-sectionY-half-m md:py-sectionY-half -mt-[100dvh]"
       aria-label="About Zen Tattoo"
       tabIndex={0}
     >
@@ -106,7 +115,7 @@ export default function About() {
           <motion.div
             key={index}
             style={{ y: index === 0 ? y1 : y2 }}
-            className="w-full flex flex-col md:flex-row gap-8 h-[120dvh] md:h-[75dvh]"
+            className="w-full flex flex-col md:flex-row gap-8 h-[100dvh] md:h-[75dvh]"
           >
             <div
               className="relative h-full w-full md:basis-1/2 overflow-hidden"
@@ -117,7 +126,7 @@ export default function About() {
                 placeholder="blur"
                 blurDataURL={item.blurDataURL}
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover rounded-lg max-h-full max-w-full"
                 style={{ scale: index === 0 ? imgScale1 : imgScale2 }}
                 loading="lazy"
                 decoding="async"
@@ -136,7 +145,7 @@ export default function About() {
               >
                 <div className="flex justify-between gap-4 items-center w-full">
                   <h2
-                    className="text-2xl font-bold w-fit md:self-start mb-0"
+                    className="h2 w-fit md:self-start mb-0"
                     style={{ order: index === 0 ? 1 : 2 }}
                   >
                     {item.title}

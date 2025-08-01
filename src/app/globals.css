@@ -12,7 +12,7 @@ body {
 }
 
 html {
-  scroll-behavior: none;
+  scroll-behavior: smooth;
   /* Hide scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -55,10 +55,10 @@ html::-webkit-scrollbar {
 
 @layer components {
   .button {
-    @apply button-bg font-display text-xs md:text-sm font-light bg-black text-white box-border cursor-pointer uppercase px-12 md:px-24 py-2 w-fit rounded-2xl border border-transparent animate-border hover:brightness-125 transition-all duration-500 ease-in-out;
+    @apply button-bg tracking-[-0.01225em] font-semibold text-xs md:text-base leading-relaxed text-black box-border cursor-pointer uppercase px-12 md:px-24 py-2 w-fit rounded-2xl border border-transparent animate-border hover:brightness-125 transition-all duration-500 ease-in-out;
   }
   .button-bg {
-    @apply [background:linear-gradient(45deg,#172033,theme(colors.neutral.800)_50%,#172033)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.neutral.700/.48)_80%,_theme(colors.neutral.600)_86%,_theme(colors.neutral.800)_90%,_theme(colors.neutral.600)_94%,_theme(colors.neutral.700/.48))_border-box];
+    @apply [background:linear-gradient(45deg,#f7f7f7,theme(colors.neutral.200)_50%,#f7f7f7)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.neutral.100/.48)_80%,_theme(colors.neutral.100)_86%,_theme(colors.neutral.200)_90%,_theme(colors.neutral.300)_94%,_theme(colors.neutral.100/.48))_border-box];
   }
 
   .about-value-text {

@@ -7,7 +7,7 @@ import { ReactLenis, useLenis } from "lenis/react"
 const ScrollContext = createContext()
 
 export const ScrollProvider = ({ children }) => {
-  const [allowScroll, setAllowScroll] = useState(false) // False as PreLoader activates it back
+  const [allowScroll, setAllowScroll] = useState(true)
   const lenis = useLenis(() => {})
 
   useEffect(() => {

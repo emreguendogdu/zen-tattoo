@@ -6,7 +6,7 @@ import { forwardRef, useEffect, useState } from "react"
 import Image from "next/image"
 import useIsMobile from "@/hooks/useIsMobile"
 
-export const PRELOADER_DURATION = 3
+export const PRELOADER_DURATION = 1.777
 
 const images = [
   "/images/preloader/1.webp",
@@ -32,6 +32,11 @@ const SECTION_VARIANTS = {
 
 export default function PreLoader() {
   const { setAllowScroll } = useScrollContext()
+
+  // Disable scroll on mount
+  useEffect(() => {
+    setAllowScroll(false)
+  }, [])
 
   function handleAnimationComplete() {
     if (!window) return

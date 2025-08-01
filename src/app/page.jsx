@@ -1,22 +1,22 @@
 "use client"
 
-import About from "@/components/homepage/about"
-import Contact from "@/components/homepage/contact"
+import About from "@/components/landing/about"
+import Contact from "@/components/landing/contact"
 import Header from "@/components/ui/header/header"
-import Hero from "@/components/homepage/hero"
-import Gallery from "@/components/homepage/gallery"
+import Hero from "@/components/landing/hero"
+import Gallery from "@/components/landing/gallery"
 import PreLoader from "@/components/ui/preloader"
-import Qualities from "@/components/homepage/qualities"
+import Qualities from "@/components/landing/qualities"
 import ScrollTracker from "@/components/ui/scrollTracker"
 
 export default function Home() {
   return (
     <>
       <ScrollTracker />
-      <PreLoader />
+      {/* <PreLoader /> */}
       <Header />
-      <Hero />
-      <About />
+      {/* <Hero /> */}
+      {/* <About /> */}
       <Qualities />
       <Gallery />
       <Contact />

@@ -58,13 +58,13 @@ export default function Gallery() {
     [0, -maxTranslate]
   )
 
-  const SECTION_SCALE_END = useTransform(scrollYProgress, [0.75, 1], [1, 0.75])
+  const SECTION_SCALE_END = useTransform(scrollYProgress, [0.75, 1], [1, 0.5])
 
   return (
     <motion.section
       ref={targetRef}
       id="gallery"
-      className="relative bg-black px-2 pb-sectionY-m md:pb-sectionY"
+      className="relative bg-black px-2"
       style={{ height: sectionHeight }}
     >
       <motion.div

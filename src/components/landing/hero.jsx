@@ -2,20 +2,47 @@
 import { useScroll, motion, useTransform } from "motion/react"
 import React, { useRef } from "react"
 import Image from "next/image"
-import { anim } from "@/utils/utils"
+import { anim, getDelay } from "@/utils/utils"
 import { PRELOADER_DURATION } from "../ui/preloader"
 
 import PlantsImage from "@/../public/images/plants.webp"
 
-const delay = -0.75
-
-// TODO - Make all delays in variable (array of objects)
-
-const transition = (i) => ({
-  delay: i + PRELOADER_DURATION,
+export const transition = {
   duration: 1,
   ease: [0, 0.55, 0.45, 1],
+  delay: PRELOADER_DURATION,
+}
+
+const transitionWithChildren = (i) => ({
+  ...transition,
+  delay: i + PRELOADER_DURATION,
 })
+
+export const HEADER_VARIANTS = {
+  initial: { y: "-100%" },
+  animate: { y: 0, transition },
+}
+
+const H0_SCALE_VARIANTS = {
+  initial: { scale: 1.077 },
+  animate: { scale: 1, transition },
+}
+
+const Y_VARIANTS = {
+  initial: { y: "200%" },
+  animate: (i) => ({
+    y: 0,
+    transition: transitionWithChildren(i),
+  }),
+}
+const PLANTS_X_VARIANTS = {
+  initial: { opacity: 0, x: "100%" },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition,
+  },
+}
 
 const DESCRIPTION_TEXT = `We offer a unique experience with experienced artists, personalized designs, and high-quality equipment. 
 
@@ -28,21 +55,6 @@ export default function Hero() {
     offset: ["start end", "end start"],
   })
 
-  const Y_VARIANTS = {
-    initial: { y: "200%" },
-    animate: (i) => ({
-      y: 0,
-      transition: transition(i),
-    }),
-  }
-  const PLANTS_X_VARIANTS = {
-    initial: { opacity: 0, x: "100%" },
-    animate: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: transition(i),
-    }),
-  }
   const opacity = useTransform(scrollYProgress, [0.65, 0.85], [1, 0])
 
   return (
@@ -54,7 +66,7 @@ export default function Hero() {
         <div className="overflow-hidden absolute inset-0">
           <motion.div
             className="absolute right-0 top-0"
-            {...anim(PLANTS_X_VARIANTS, delay)}
+            {...anim(PLANTS_X_VARIANTS, getDelay("plants"))}
           >
             <motion.div
               initial={{ x: -5 }}
@@ -82,7 +94,7 @@ export default function Hero() {
         <div className="max-w-screen-md flex flex-col gap-4">
           <div className="overflow-hidden">
             <motion.h1
-              {...anim(Y_VARIANTS, delay + 0.75)}
+              {...anim(Y_VARIANTS, getDelay("title"))}
               className="text-center mb-0"
             >
               Experience ink artistry.
@@ -94,7 +106,9 @@ export default function Hero() {
                 return (
                   <React.Fragment key={`dsc__${i}`}>
                     <span className="relative inline-flex overflow-hidden">
-                      <motion.span {...anim(Y_VARIANTS, delay + 0.7)}>
+                      <motion.span
+                        {...anim(Y_VARIANTS, getDelay("description"))}
+                      >
                         {word}
                       </motion.span>
                       <span className="inline-block">&nbsp;</span>
@@ -109,7 +123,7 @@ export default function Hero() {
           <div className="relative mb-1 md:mb-2">
             <motion.p
               className="text-left text-xs md:text-sm font-display font-light leading-loose w-full block md:hidden"
-              {...anim(Y_VARIANTS, delay + 0.1)}
+              {...anim(Y_VARIANTS, getDelay("address"))}
             >
               1923 N Michigan St, Plymouth, IN
             </motion.p>
@@ -120,7 +134,10 @@ export default function Hero() {
               </video>
             </div>
           </div>
-          <motion.p className="h0 mb-0 text-right md:text-left">
+          <motion.p
+            className="h0 mb-0 text-right"
+            {...anim(H0_SCALE_VARIANTS, getDelay("h0"))}
+          >
             Zen Tattoo
           </motion.p>
         </div>
