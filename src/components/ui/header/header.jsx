@@ -37,7 +37,7 @@ export default function Header() {
   }, [])
   return (
     <motion.header
-      className={` z-40 p-sectionX-m md:p-sectionX w-full fixed box-border transition-all bg-white text-black ${
+      className={` z-[9999] p-sectionX-m md:p-sectionX w-full fixed box-border transition-all bg-white text-black ${
         isDarkBg && "!bg-black !text-white"
       }`}
       {...anim(HEADER_VARIANTS, getDelay("header"))}

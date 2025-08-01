@@ -10,6 +10,7 @@ import Image from "next/image"
 import { useRef } from "react"
 
 import { qualities, images } from "@/data/qualities"
+import MarqueeText from "@/components/ui/MarqueeText"
 
 function Quality({ quality, index, range, targetScale, globalProgress }) {
   const qualityTargetRef = useRef(null)
@@ -55,25 +56,6 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
   )
 }
 
-function GalleryPreview({ scrollYProgress }) {
-  const titleY = useTransform(scrollYProgress, [0, 1], [-500, 0])
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest)
-  })
-
-  return (
-    <motion.div className="absolute bottom-0 left-0 right-0 z-[10]">
-      <motion.h3
-        className="h0 mt-4 mb-6 text-center z-10"
-        style={{ y: titleY }}
-      >
-        Gallery
-      </motion.h3>
-    </motion.div>
-  )
-}
-
 export default function Qualities() {
   const targetRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -81,29 +63,29 @@ export default function Qualities() {
     offset: ["start start", "end end"],
   })
 
-  const { scrollYProgress: galleryProgress } = useScroll({
+  const { scrollYProgress: scaleProgress } = useScroll({
     target: targetRef,
-    offset: ["center start", "end center"],
+    offset: ["80% start", "end 25%"],
   })
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest)
+  })
+
+  const sectionScale = useTransform(scaleProgress, [0, 1], [1, 0.8])
+  const sectionY = useTransform(scaleProgress, [0, 1], [0, 1024])
 
   return (
     <>
-      <section
+      <motion.section
         id="qualities"
         className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] z-20 py-sectionY-m md:py-0"
         ref={targetRef}
       >
-        <motion.div className="absolute bottom-[100px] left-0 right-0 flex justify-center items-center gap-4">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span
-              key={`quality-${i}`}
-              className="h0 whitespace-nowrap inline-block opacity-10"
-            >
-              Zen Tattoo
-            </span>
-          ))}
-        </motion.div>
-        <div className="flex flex-col relative">
+        <motion.div
+          className="flex flex-col relative pb-sectionY-m-half"
+          style={{ scale: sectionScale, y: sectionY }}
+        >
           {qualities.map((quality, i) => {
             const targetScale = 1 - (qualities.length - i) * 0.05
             return (
@@ -117,14 +99,11 @@ export default function Qualities() {
               />
             )
           })}
-        </div>
-      </section>
-
-      {/* Placeholder div for the bottom of the section */}
-      <div className="relative">
-        <GalleryPreview scrollYProgress={galleryProgress} />
-      </div>
-      <div className="my-sectionY-m-half" />
+          <motion.div className="absolute bottom-[100px] left-0 right-0 flex justify-center items-center w-[200dvw] -translate-x-1/4">
+            <MarqueeText text="Zen Tattoo" speed={160} />
+          </motion.div>
+        </motion.div>
+      </motion.section>
     </>
   )
 }

@@ -49,20 +49,17 @@ html::-webkit-scrollbar {
     @apply h3;
   }
   p {
-    @apply tracking-[-0.01225em] text-xs md:text-base leading-relaxed font-light;
+    @apply tracking-[-0.01225em] text-sm md:text-base leading-relaxed font-light;
   }
 }
 
 @layer components {
   .button {
-    @apply button-bg tracking-[-0.01225em] font-semibold text-xs md:text-base leading-relaxed text-black box-border cursor-pointer uppercase px-12 md:px-24 py-2 w-fit rounded-2xl border border-transparent animate-border hover:brightness-125 transition-all duration-500 ease-in-out;
-  }
-  .button-bg {
-    @apply [background:linear-gradient(45deg,#f7f7f7,theme(colors.neutral.200)_50%,#f7f7f7)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.neutral.100/.48)_80%,_theme(colors.neutral.100)_86%,_theme(colors.neutral.200)_90%,_theme(colors.neutral.300)_94%,_theme(colors.neutral.100/.48))_border-box];
+    @apply tracking-[-0.01225em] font-semibold text-sm md:text-base leading-relaxed bg-black text-white box-border cursor-pointer uppercase px-8 md:px-16 w-3/4 whitespace-nowrap py-2 rounded-full text-center hover:brightness-125 transition-all duration-500 ease-in-out;
   }
 
   .about-value-text {
-    @apply font-display uppercase font-medium text-left text-xs md:text-sm whitespace-nowrap;
+    @apply font-display uppercase font-medium text-left text-sm md:text-sm whitespace-nowrap;
   }
 }
 

@@ -17,7 +17,7 @@ const months = [
 
 function Footer() {
   return (
-    <footer className="relative left-0 right-0 py-4 flex flex-col md:flex-row justify-between items-end md:items-center px-sectionX-m md:px-sectionX text-justify md:text-left [&>p]:font-light [&>p]:text-xs bg-black text-white">
+    <footer className="relative left-0 right-0 py-4 flex flex-col md:flex-row justify-between items-end md:items-center px-sectionX-m md:px-sectionX text-justify md:text-left bg-white text-black">
       <Availability />
       <p>
         © 2024 — All rights reserved. Made by{" "}
@@ -36,16 +36,19 @@ function Footer() {
 
 const Availability = () => {
   const today = new Date()
-  const monthName = months[today.getMonth() + 1]
+
   const dayOfMonth = today.getDate()
   const weekOfMonth = Math.ceil(dayOfMonth / 7)
   const spotsByWeek = { 1: 4, 2: 3, 3: 2, 4: 1 }
   const spots = spotsByWeek[weekOfMonth] ?? 0
 
+  const monthName =
+    spots > 0 ? months[today.getMonth()] : months[today.getMonth() + 1]
+
   return (
     <>
       <p>
-        Available @ <span className="font-semibold">{monthName}</span>{" "}
+        Available @ <span>{monthName}</span>{" "}
         {spots > 0 ? (
           <span>
             (Last {spots} spot{spots !== 1 ? "s" : ""}!)
