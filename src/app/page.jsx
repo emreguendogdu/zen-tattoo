@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <>
       <ScrollTracker />
-      {/* <PreLoader /> */}
+      <PreLoader />
       <Header />
-      {/* <Hero /> */}
-      {/* <About /> */}
-      {/* <Qualities /> */}
+      <Hero />
+      <About />
+      <Qualities />
       <Gallery />
       <Contact />
     </>
