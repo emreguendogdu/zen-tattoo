@@ -80,10 +80,6 @@ export default function About() {
     offset: ["start end", "end end"],
   })
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest)
-  })
-
   const isMobile = useIsMobile()
   // Parallax for each block
   const y1 = useTransform(

@@ -1,5 +1,10 @@
 "use client"
-import { useScroll, motion, useTransform } from "motion/react"
+import {
+  useScroll,
+  motion,
+  useTransform,
+  useMotionValueEvent,
+} from "motion/react"
 import React, { useRef } from "react"
 import Image from "next/image"
 import { anim, getDelay } from "@/utils/utils"
@@ -52,13 +57,19 @@ export default function Hero() {
   const targetRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "80% end"],
+  })
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest)
   })
 
   const opacity = useTransform(scrollYProgress, [0.65, 0.85], [1, 0])
+  const scaleScrollAnim = useTransform(scrollYProgress, [0.65, 0.85], [1, 0.9])
+  const yScrollAnim = useTransform(scrollYProgress, [0.65, 0.85], [0, 100])
 
   return (
-    <section id="hero" className="relative min-h-[250vh]" ref={targetRef}>
+    <section id="hero" className="relative min-h-[200dvh]" ref={targetRef}>
       <motion.div
         className="sticky top-0 h-[100dvh] flex px-2 md:px-0 justify-center items-center"
         style={{ opacity }}
@@ -91,7 +102,10 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="max-w-screen-md flex flex-col gap-4">
+        <motion.div
+          className="max-w-screen-md flex flex-col gap-4"
+          style={{ scale: scaleScrollAnim, y: yScrollAnim }}
+        >
           <div className="overflow-hidden">
             <motion.h1
               {...anim(Y_VARIANTS, getDelay("title"))}
@@ -118,7 +132,7 @@ export default function Hero() {
               })}
             </motion.p>
           </div>
-        </div>
+        </motion.div>
         <div className="absolute bottom-0 left-0 right-0 flex gap-4 justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
           <div className="relative mb-1 md:mb-2">
             <motion.p
