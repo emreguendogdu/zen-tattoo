@@ -65,7 +65,7 @@ export default function Qualities() {
 
   const { scrollYProgress: scaleProgress } = useScroll({
     target: targetRef,
-    offset: ["75% start", "end start"],
+    offset: ["85% start", "end 10%"],
   })
 
   const sectionScale = useTransform(scaleProgress, [0, 1], [1, 0.8])
@@ -99,7 +99,7 @@ export default function Qualities() {
               />
             )
           })}
-          <motion.div className="absolute bottom-[100px] left-0 right-0 flex justify-center items-center w-[200dvw] -translate-x-1/4">
+          <motion.div className="absolute bottom-[200px] left-0 right-0 flex justify-center items-center w-[200dvw] -translate-x-1/4">
             <MarqueeText text="Zen Tattoo" speed={160} />
           </motion.div>
         </motion.div>

@@ -1,11 +1,26 @@
 "use client"
 
 import { useRef, useState, useLayoutEffect, useEffect } from "react"
-import { useScroll, useTransform, motion } from "motion/react"
+import { useScroll, useTransform, motion, useInView } from "motion/react"
 import Image from "next/image"
 import { images } from "@/data/gallery"
 import { useDarkSectionRef } from "@/context/HeaderColorContext"
 import useIsMobile from "@/hooks/useIsMobile"
+
+const titleVariants = {
+  hidden: {
+    y: "-200%",
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+}
 
 export default function Gallery() {
   const targetRef = useDarkSectionRef()
@@ -20,8 +35,14 @@ export default function Gallery() {
     const viewportWidth =
       ulRef.current.parentElement?.clientWidth || window.innerWidth
     const computedMax = totalWidth - viewportWidth
+
+    // Cap the maximum height for smaller viewports
+    const maxHeight = Math.min(
+      computedMax * 1.618 + window.innerHeight,
+      window.innerHeight * 3
+    )
     setMaxTranslate(computedMax)
-    setSectionHeight(computedMax * 1.618 + window.innerHeight)
+    setSectionHeight(maxHeight)
   }, [isMobile])
 
   useEffect(() => {
@@ -31,8 +52,14 @@ export default function Gallery() {
       const viewportWidth =
         ulRef.current.parentElement?.clientWidth || window.innerWidth
       const computedMax = totalWidth - viewportWidth
+
+      // Cap the maximum height for smaller viewports
+      const maxHeight = Math.min(
+        computedMax * 1.618 + window.innerHeight,
+        window.innerHeight * 3
+      )
       setMaxTranslate(computedMax)
-      setSectionHeight(computedMax * 1.618 + window.innerHeight)
+      setSectionHeight(maxHeight)
     }
 
     window.addEventListener("resize", handleResize)
@@ -61,12 +88,19 @@ export default function Gallery() {
         style={{ height: sectionHeight }}
       >
         <motion.div
-          className="sticky top-0 h-screen overflow-hidden pt-16 md:pt-24"
+          className="sticky top-0 h-[100dvh] overflow-hidden py-sectionY-m-half"
           style={{
             scale: SECTION_SCALE_END,
           }}
         >
-          <h2 className="text-white md:mb-8">Gallery</h2>
+          <motion.h2
+            variants={titleVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="text-white md:mb-8"
+          >
+            Gallery
+          </motion.h2>
           <motion.ul
             ref={ulRef}
             style={{ x: X_FOR_HORIZONTAL_SCROLL }}
@@ -75,7 +109,7 @@ export default function Gallery() {
             {Array.from({ length: images.length }).map((_, i) => (
               <li
                 key={i}
-                className="relative min-w-[80vw] md:min-w-[52vw] min-h-[75vh] h-full"
+                className="relative min-w-[80vw] md:min-w-[35vw] min-h-[85vh] md:min-h-[80dvh] h-full"
               >
                 <Image
                   src={images[i]}

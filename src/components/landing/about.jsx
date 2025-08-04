@@ -108,15 +108,20 @@ export default function About() {
         className="w-full flex flex-col gap-sectionY-m-half md:gap-sectionY-half px-sectionX-m md:px-sectionX"
       >
         {CONTENT.map((item, index) => (
-          <div key={index} className="sticky top-0 h-[100dvh] md:h-[95dvh]">
+          <div
+            key={index}
+            className="sticky top-0 min-h-[100dvh] md:min-h-[95dvh]"
+          >
             <motion.div
               key={index}
-              className={`w-full flex flex-col md:flex-row gap-8 h-[100dvh] md:h-[90dvh] bg-black pt-sectionY-half-m  ${
+              className={`w-full flex flex-col md:flex-row gap-8 min-h-[100dvh] md:min-h-[90dvh] bg-black md:py-sectionY-m-half  ${
                 index === 0 ? "rounded-t-3xl md:rounded-t-[4rem]" : ""
               }`}
             >
               <div
-                className="relative h-full w-full md:basis-1/2 overflow-hidden"
+                className={`relative min-h-[500px] sm:min-h-[640px] md:min-h-[75vh] lg:min-h-[85vh] h-full w-full md:basis-1/2 overflow-hidden ${
+                  index === 0 ? "rounded-t-3xl md:rounded-t-[4rem]" : ""
+                }`}
                 style={{ order: isMobile ? 1 : index === 0 ? 1 : 2 }}
               >
                 <MotionImage
@@ -124,7 +129,10 @@ export default function About() {
                   placeholder="blur"
                   blurDataURL={item.blurDataURL}
                   fill
-                  className="object-cover rounded-lg max-h-full max-w-full"
+                  className={
+                    "relative object-cover max-h-full max-w-full" +
+                    (index === 0 ? " rounded-t-3xl md:rounded-t-[4rem]" : "")
+                  }
                   style={{
                     scale: index === 0 ? imgScale1 : imgScale2,
                     y: index === 0 ? y1 : y2,
