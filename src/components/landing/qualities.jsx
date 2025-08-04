@@ -65,11 +65,15 @@ export default function Qualities() {
 
   const { scrollYProgress: scaleProgress } = useScroll({
     target: targetRef,
-    offset: ["80% start", "end 25%"],
+    offset: ["75% start", "end start"],
   })
 
   const sectionScale = useTransform(scaleProgress, [0, 1], [1, 0.8])
   const sectionY = useTransform(scaleProgress, [0, 1], [0, 1024])
+
+  useMotionValueEvent(scaleProgress, "change", (latest) => {
+    console.log(latest)
+  })
 
   return (
     <>

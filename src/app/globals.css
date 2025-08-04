@@ -28,7 +28,7 @@ html::-webkit-scrollbar {
     @apply font-display font-bold mb-4 text-left md:text-center uppercase;
   }
   .h0 {
-    @apply heading-base tracking-tight text-[2.5rem] leading-[2.5rem] md:text-8xl;
+    @apply heading-base tracking-tight text-[2.5rem] leading-[2.5rem] md:text-6xl lg:text-7xl xl:text-8xl;
   }
   .h1 {
     @apply heading-base tracking-normal text-3xl md:text-6xl;

@@ -15,9 +15,9 @@ export default function Contact() {
         <section
           ref={sectionRef}
           id="contact"
-          className="relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[85dvh] h-full -mt-[75dvh] bg-white text-black rounded-t-3xl md:rounded-t-[4rem]"
+          className="relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[85dvh] h-full -mt-[75dvh] bg-white text-black rounded-t-3xl md:rounded-t-[4rem] z-60"
         >
-          <div className="relative w-full h-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-8 md:gap-16 xl:gap-32 overflow-hidden py-sectionY-m-half">
+          <div className="relative w-full h-full flex flex-col md:flex-row md:justify-between items-start md:items-center gap-16 sm:gap-16  xl:gap-32 overflow-hidden py-4 md:py-8 lg:py-sectionY-m-half">
             <div className="flex flex-col w-fit h-full md:justify-between gap-2 overflow-hidden order-2 md:order-1">
               <h2 className="h2 w-fit text-left">
                 Let&apos;s bring

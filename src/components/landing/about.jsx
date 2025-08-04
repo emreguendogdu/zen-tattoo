@@ -99,7 +99,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-fit md:h-[180dvh] bg-black text-white z-10 py-sectionY-half-m md:py-sectionY-half -mt-[100dvh]"
+      className="relative w-full h-fit bg-black text-white z-10 -mt-[100dvh] rounded-t-3xl md:rounded-t-[4rem]"
       aria-label="About Zen Tattoo"
       tabIndex={0}
     >
@@ -108,78 +108,84 @@ export default function About() {
         className="w-full flex flex-col gap-sectionY-m-half md:gap-sectionY-half px-sectionX-m md:px-sectionX"
       >
         {CONTENT.map((item, index) => (
-          <motion.div
-            key={index}
-            style={{ y: index === 0 ? y1 : y2 }}
-            className="w-full flex flex-col md:flex-row gap-8 h-[100dvh] md:h-[75dvh]"
-          >
-            <div
-              className="relative h-full w-full md:basis-1/2 overflow-hidden"
-              style={{ order: isMobile ? 1 : index === 0 ? 1 : 2 }}
-            >
-              <MotionImage
-                src={item.imageSrc}
-                placeholder="blur"
-                blurDataURL={item.blurDataURL}
-                fill
-                className="object-cover rounded-lg max-h-full max-w-full"
-                style={{ scale: index === 0 ? imgScale1 : imgScale2 }}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              className="flex flex-col md:basis-1/2 gap-4 justify-between"
-              style={{ order: index === 0 ? 2 : 1 }}
+          <div key={index} className="sticky top-0 h-[100dvh] md:h-[95dvh]">
+            <motion.div
+              key={index}
+              className={`w-full flex flex-col md:flex-row gap-8 h-[100dvh] md:h-[90dvh] bg-black pt-sectionY-half-m  ${
+                index === 0 ? "rounded-t-3xl md:rounded-t-[4rem]" : ""
+              }`}
             >
               <div
-                className="flex flex-col gap-4 w-full"
-                style={{
-                  alignItems: index === 0 ? "flex-start" : "flex-end",
-                  justifyContent: isMobile && index === 0 ? "start" : "end",
-                }}
+                className="relative h-full w-full md:basis-1/2 overflow-hidden"
+                style={{ order: isMobile ? 1 : index === 0 ? 1 : 2 }}
               >
-                <div className="flex justify-between gap-4 items-center w-full">
-                  <h2
-                    className="h2 w-fit md:self-start mb-0"
-                    style={{ order: index === 0 ? 1 : 2 }}
-                  >
-                    {item.title}
-                  </h2>
-                  <div
-                    className="text-5xl self-center md:self-start text-neutral-500"
-                    aria-label="Mission icon"
-                    style={{ order: index === 0 ? 2 : 1 }}
-                  >
-                    {item.icon}
-                  </div>
-                </div>
-                <p
-                  className="text-justify md:max-w-lg"
+                <MotionImage
+                  src={item.imageSrc}
+                  placeholder="blur"
+                  blurDataURL={item.blurDataURL}
+                  fill
+                  className="object-cover rounded-lg max-h-full max-w-full"
                   style={{
-                    textAlign: index === 0 ? "left" : "right",
-                    alignSelf: index === 0 ? "flex-start" : "flex-end",
+                    scale: index === 0 ? imgScale1 : imgScale2,
+                    y: index === 0 ? y1 : y2,
+                  }}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                className="flex flex-col md:basis-1/2 gap-4 justify-between"
+                style={{ order: index === 0 ? 2 : 1 }}
+              >
+                <div
+                  className="flex flex-col gap-4 w-full"
+                  style={{
+                    alignItems: index === 0 ? "flex-start" : "flex-end",
+                    justifyContent: isMobile && index === 0 ? "start" : "end",
                   }}
                 >
-                  {item.description}
-                </p>
+                  <div className="flex justify-between gap-4 items-center w-full">
+                    <h2
+                      className="h2 w-fit md:self-start mb-0"
+                      style={{ order: index === 0 ? 1 : 2 }}
+                    >
+                      {item.title}
+                    </h2>
+                    <div
+                      className="text-5xl self-center md:self-start text-neutral-500"
+                      aria-label="Mission icon"
+                      style={{ order: index === 0 ? 2 : 1 }}
+                    >
+                      {item.icon}
+                    </div>
+                  </div>
+                  <p
+                    className="text-justify md:max-w-lg"
+                    style={{
+                      textAlign: index === 0 ? "left" : "right",
+                      alignSelf: index === 0 ? "flex-start" : "flex-end",
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+                <ul
+                  className="flex gap-4 md:gap-2 md:flex-col mt-2 w-full"
+                  style={{
+                    alignItems:
+                      !isMobile && index === 0 ? "flex-start" : "flex-end",
+                    justifyContent: isMobile && index === 0 ? "start" : "end",
+                  }}
+                >
+                  {item.values.map((value) => (
+                    <li key={value}>
+                      <p className="about-value-text">✦ {value}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul
-                className="flex gap-4 md:gap-2 md:flex-col mt-2 w-full"
-                style={{
-                  alignItems:
-                    !isMobile && index === 0 ? "flex-start" : "flex-end",
-                  justifyContent: isMobile && index === 0 ? "start" : "end",
-                }}
-              >
-                {item.values.map((value) => (
-                  <li key={value}>
-                    <p className="about-value-text">✦ {value}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         ))}
       </div>
     </section>

@@ -10,7 +10,7 @@ export default function ScrollTracker() {
   return (
     <motion.div
       id="scroll-tracker"
-      className={`fixed bottom-0 right-0 h-screen w-1 md:w-2 z-[998] origin-top-right ${
+      className={`fixed bottom-0 right-0 h-screen w-1 md:w-2 z-[99998] origin-top-right ${
         isDarkBg ? "bg-neutral-800" : "bg-black"
       }`}
       style={{
