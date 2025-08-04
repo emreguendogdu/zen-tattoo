@@ -19,12 +19,9 @@ export default function Gallery() {
     const totalWidth = ulRef.current.scrollWidth
     const viewportWidth =
       ulRef.current.parentElement?.clientWidth || window.innerWidth
-    const computedMax = Math.max(0, totalWidth - viewportWidth)
+    const computedMax = totalWidth - viewportWidth
     setMaxTranslate(computedMax)
-    // Adjust height calculation to prevent empty space
-    const baseHeight = window.innerHeight
-    const scrollHeight = computedMax * 0.8 // Reduced multiplier
-    setSectionHeight(baseHeight + scrollHeight)
+    setSectionHeight(computedMax * 1.618 + window.innerHeight)
   }, [isMobile])
 
   useEffect(() => {
@@ -33,11 +30,9 @@ export default function Gallery() {
       const totalWidth = ulRef.current.scrollWidth
       const viewportWidth =
         ulRef.current.parentElement?.clientWidth || window.innerWidth
-      const computedMax = Math.max(0, totalWidth - viewportWidth)
+      const computedMax = totalWidth - viewportWidth
       setMaxTranslate(computedMax)
-      const baseHeight = window.innerHeight
-      const scrollHeight = computedMax * 0.8
-      setSectionHeight(baseHeight + scrollHeight)
+      setSectionHeight(computedMax * 1.618 + window.innerHeight)
     }
 
     window.addEventListener("resize", handleResize)
@@ -62,7 +57,7 @@ export default function Gallery() {
       <motion.section
         ref={targetRef}
         id="gallery"
-        className="relative bg-black px-2 -mt-[10dvh] z-30 overflow-hidden"
+        className="relative bg-black px-2 -mt-[10dvh] z-30"
         style={{ height: sectionHeight }}
       >
         <motion.div
@@ -80,7 +75,7 @@ export default function Gallery() {
             {Array.from({ length: images.length }).map((_, i) => (
               <li
                 key={i}
-                className="relative min-w-[80vw] md:min-w-[52vw] min-h-[75vh] h-full flex-shrink-0"
+                className="relative min-w-[80vw] md:min-w-[52vw] min-h-[75vh] h-full"
               >
                 <Image
                   src={images[i]}
