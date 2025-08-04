@@ -22,12 +22,18 @@ const MouseTracker = () => {
 
   return (
     <motion.div
-      className="fixed pointer-events-none transition-opacity duration-200 border border-neutral-500 z-[999999]"
+      className="fixed pointer-events-none transition-opacity duration-200 border border-neutral-400 rounded-full -translate-x-1/2 -translate-y-1/2 z-[999999]"
+      animate={{
+        left: mousePosition.x,
+        top: mousePosition.y,
+        transition: {
+          duration: 0.2,
+          ease: "backOut",
+        },
+      }}
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        borderRadius: "50%",
-        transform: "translate(-50%, -50%)",
       }}
     />
   )
