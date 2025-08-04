@@ -73,7 +73,7 @@ const CONTENT = [
 ]
 
 export default function About() {
-  const sectionRef = useDarkSectionRef()
+  const sectionRef = useDarkSectionRef({ threshold: 0.4 })
   const parallaxRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: parallaxRef,
@@ -204,4 +204,4 @@ const motionImageRef = forwardRef(function ExoticImageWrapper(props, ref) {
   return <Image {...props} ref={ref} alt="Tattoo related" />
 })
 
-const MotionImage = motion(motionImageRef)
+const MotionImage = motion.create(motionImageRef)

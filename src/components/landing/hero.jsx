@@ -64,9 +64,9 @@ export default function Hero() {
     console.log(latest)
   })
 
-  const opacity = useTransform(scrollYProgress, [0.65, 0.85], [1, 0])
-  const scaleScrollAnim = useTransform(scrollYProgress, [0.65, 0.85], [1, 0.9])
-  const yScrollAnim = useTransform(scrollYProgress, [0.65, 0.85], [0, 100])
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.5])
+  const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.9])
+  const y = useTransform(scrollYProgress, [0, 0.9], [0, 50])
 
   return (
     <section id="hero" className="relative min-h-[200dvh]" ref={targetRef}>
@@ -89,6 +89,11 @@ export default function Hero() {
                 delay: PRELOADER_DURATION + 0.2,
               }}
               className="relative -z-10"
+              style={{
+                opacity,
+                scale,
+                y,
+              }}
             >
               <Image
                 src={PlantsImage}
@@ -104,7 +109,7 @@ export default function Hero() {
         </div>
         <motion.div
           className="max-w-screen-md flex flex-col gap-4"
-          style={{ scale: scaleScrollAnim, y: yScrollAnim }}
+          style={{ opacity, scale, y }}
         >
           <div className="overflow-hidden">
             <motion.h1
@@ -134,7 +139,10 @@ export default function Hero() {
           </div>
         </motion.div>
         <div className="absolute bottom-0 left-0 right-0 flex gap-4 justify-between items-end px-sectionX-m md:px-sectionX overflow-hidden">
-          <div className="relative mb-1 md:mb-2">
+          <motion.div
+            className="relative mb-1 md:mb-2"
+            style={{ opacity, scale, y }}
+          >
             <motion.p
               className="text-left text-xs md:text-sm font-display font-light leading-loose w-full block md:hidden"
               {...anim(Y_VARIANTS, getDelay("address"))}
@@ -147,9 +155,10 @@ export default function Hero() {
                 Your browser does not support the video tag.
               </video>
             </div>
-          </div>
+          </motion.div>
           <motion.p
             className="h0 mb-0 text-right"
+            style={{ opacity, scale, y }}
             {...anim(H0_SCALE_VARIANTS, getDelay("h0"))}
           >
             Zen Tattoo

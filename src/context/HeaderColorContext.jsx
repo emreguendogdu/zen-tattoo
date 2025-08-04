@@ -50,7 +50,8 @@ export const HeaderColorProvider = ({ children }) => {
 
 export const useHeaderColor = () => useContext(HeaderColorContext)
 
-export const useDarkSectionRef = () => {
+export const useDarkSectionRef = (options = {}) => {
+  const { threshold = 0.2 } = options
   const ref = useRef(null)
   const id = useId()
   const { registerSection, unregisterSection } = useHeaderColor()
@@ -62,14 +63,14 @@ export const useDarkSectionRef = () => {
         if (entry.isIntersecting) registerSection(id)
         else unregisterSection(id)
       },
-      { threshold: 0.1 }
+      { threshold }
     )
     observer.observe(ref.current)
     return () => {
       observer.disconnect()
       unregisterSection(id)
     }
-  }, [id, registerSection, unregisterSection])
+  }, [id, registerSection, unregisterSection, threshold])
 
   return ref
 }

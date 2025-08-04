@@ -8,12 +8,14 @@ import Gallery from "@/components/landing/gallery"
 import PreLoader from "@/components/ui/preloader"
 import Qualities from "@/components/landing/qualities"
 import ScrollTracker from "@/components/ui/scrollTracker"
+import MouseTracker from "@/components/ui/mouseTracker"
 
 export default function Home() {
   return (
     <>
       <ScrollTracker />
-      <PreLoader />
+      <MouseTracker />
+      {/* <PreLoader /> */}
       <Header />
       <Hero />
       <About />

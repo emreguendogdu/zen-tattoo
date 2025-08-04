@@ -99,9 +99,11 @@ export default function Qualities() {
               />
             )
           })}
-          <motion.div className="absolute bottom-[200px] left-0 right-0 flex justify-center items-center w-[200dvw] -translate-x-1/4">
-            <MarqueeText text="Zen Tattoo" speed={160} />
-          </motion.div>
+          <div className="absolute bottom-[200px] left-0 right-0 w-full">
+            <div className="w-full overflow-hidden">
+              <MarqueeText text="Zen Tattoo" speed={160} />
+            </div>
+          </div>
         </motion.div>
       </motion.section>
     </>

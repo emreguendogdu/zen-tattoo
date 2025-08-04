@@ -185,4 +185,4 @@ const ExoticImage = forwardRef(function ExoticImageWrapper(props, ref) {
   return <Image {...props} ref={ref} alt="Preloader image" />
 })
 
-const MotionImage = motion(ExoticImage)
+const MotionImage = motion.create(ExoticImage)
