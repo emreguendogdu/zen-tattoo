@@ -2,6 +2,7 @@
 import { animate, motion, useMotionValue } from "motion/react"
 import { anim } from "@/utils/utils"
 import { useScrollContext } from "@/context/ScrollContext"
+import { useHeroTitle } from "@/context/HeroTitleContext"
 import { forwardRef, useEffect, useState } from "react"
 import Image from "next/image"
 import useIsMobile from "@/hooks/useIsMobile"
@@ -56,7 +57,7 @@ export default function PreLoader() {
       <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 select-none">
         <ImageLoader />
       </div>
-      <div className="absolute bottom-1 md:bottom-2 left-0 right-0 w-full flex items-end justify-between px-sectionX-m md:px-sectionX">
+      <div className="absolute bottom-0 left-0 right-0 w-full flex items-end justify-between px-sectionX-m md:px-sectionX">
         <NumberLoader />
         <div className="flex flex-col items-end">
           <motion.div
@@ -77,16 +78,19 @@ const mobileTitlePathD = `M280.433 69V49.992L324.977 19.08H280.433V0.0719948H357
 
 const TitleSvg = (props) => {
   const isMobile = useIsMobile()
+  const { heroTitleWidth } = useHeroTitle()
 
   return (
-    <div
-      style={{
-        fontSize: "clamp(2.5rem, 6.5vw, 6rem)", // Dynamic scaling
-        display: "inline-block",
-        lineHeight: 1,
-      }}
-    >
-      <div style={{ width: isMobile ? "6em" : "9em" }}>
+    <div className="h0">
+      <div
+        style={{
+          width: heroTitleWidth
+            ? `${heroTitleWidth}px`
+            : isMobile
+            ? "12em"
+            : "18em",
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox={isMobile ? "0 0 540 170" : "0 0 835 73"}
@@ -166,6 +170,7 @@ const ImageLoader = () => {
           key={src}
           src={src}
           fill
+          sizes="(max-width: 768px) 100px, 200px"
           initial={{ opacity: 0, zIndex: 0 }}
           animate={{
             opacity: imageIndex === idx ? 1 : 0,

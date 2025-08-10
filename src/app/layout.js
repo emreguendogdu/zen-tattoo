@@ -37,7 +37,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${PPMonument.variable} ${inter.className}`}>
+      <body className={`relative ${PPMonument.variable} ${inter.className}`}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>

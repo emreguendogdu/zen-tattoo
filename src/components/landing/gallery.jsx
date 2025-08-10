@@ -117,6 +117,7 @@ export default function Gallery() {
                   alt="Tattoo project"
                   aria-hidden
                   fill
+                  sizes="(max-width: 768px) 80vw, 35vw"
                   placeholder="blur"
                   loading="lazy"
                   decoding="async"

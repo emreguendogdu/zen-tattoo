@@ -32,6 +32,7 @@ export default function Plants({
             src={PlantsImage}
             alt="Plants"
             fill
+            sizes="40px"
             className="object-cover object-center min-w-8 min-h-8 w-1/2 h-1/2"
             style={{ filter: isHovered ? "invert(1)" : "invert(0)" }}
             priority
@@ -56,6 +57,7 @@ export default function Plants({
             src={PlantsImage}
             alt="Plants"
             fill
+            sizes="40px"
             className="object-cover object-center min-w-8 min-h-8 w-1/2 h-1/2"
             style={{ filter: isHovered ? "invert(1)" : "invert(0)" }}
             priority

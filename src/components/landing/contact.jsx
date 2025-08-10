@@ -17,7 +17,7 @@ export default function Contact() {
         <section
           ref={sectionRef}
           id="contact"
-          className="relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[85dvh] h-full -mt-[75dvh] bg-white text-black rounded-t-3xl md:rounded-t-[4rem] z-60"
+          className="relative px-sectionX-m md:px-sectionX pb-8 w-full md:h-[85dvh] h-full min-h-[85dvh] -mt-[75dvh] bg-white text-black rounded-t-3xl md:rounded-t-[4rem] z-60"
         >
           <div className="relative w-full h-full flex flex-col md:flex-row md:justify-between items-start md:items-center gap-32 sm:gap-32  xl:gap-32 overflow-hidden py-4 sm:py-8 lg:py-16">
             <div className="flex flex-col w-fit h-full sm:justify-start gap-2 md:gap-8 overflow-hidden order-2 md:order-1">
@@ -40,6 +40,7 @@ export default function Contact() {
                 decoding="async"
                 blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAMAAAAECAIAAADETxJQAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAM0lEQVR4nAEoANf/ANvz9OX//wANCQDr7eJiYF89T08Aipear6ytnq2nADBFQxkqKBUmI6kvEahy3xmeAAAAAElFTkSuQmCC"
                 fill
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
           </div>
@@ -58,7 +59,7 @@ const AnimatedTitle = ({ targetRef }) => {
   const titleRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["5% end", "end end"],
+    offset: ["25% end", "98% end"],
   })
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {

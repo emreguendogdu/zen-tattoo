@@ -1,14 +1,10 @@
 "use client"
-import {
-  useScroll,
-  motion,
-  useTransform,
-  useMotionValueEvent,
-} from "motion/react"
-import React, { useRef } from "react"
+import { useScroll, motion, useTransform } from "motion/react"
+import React, { useRef, useEffect } from "react"
 import Image from "next/image"
 import { anim, getDelay } from "@/utils/utils"
 import { PRELOADER_DURATION } from "../ui/preloader"
+import { useHeroTitle } from "@/context/HeroTitleContext"
 
 import PlantsImage from "@/../public/images/plants.webp"
 
@@ -26,11 +22,6 @@ const transitionWithChildren = (i) => ({
 export const HEADER_VARIANTS = {
   initial: { y: "-100%" },
   animate: { y: 0, transition },
-}
-
-const H0_SCALE_VARIANTS = {
-  initial: { scale: 1.077 },
-  animate: { scale: 1, transition },
 }
 
 const Y_VARIANTS = {
@@ -55,14 +46,22 @@ Whether you're looking to get your first tattoo or adding to your collection, ou
 
 export default function Hero() {
   const targetRef = useRef(null)
+  const heroTitleRef = useRef(null)
+  const { setHeroTitleWidth } = useHeroTitle()
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "80% end"],
   })
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest)
-  })
+  useEffect(() => {
+    const measureTitleWidth = () => {
+      if (heroTitleRef.current) {
+        const width = heroTitleRef.current.offsetWidth
+        setHeroTitleWidth(width)
+      }
+    }
+    measureTitleWidth()
+  }, [setHeroTitleWidth])
 
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.5])
   const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.9])
@@ -157,9 +156,9 @@ export default function Hero() {
             </div>
           </motion.div>
           <motion.p
+            ref={heroTitleRef}
             className="h0 mb-0 text-right"
             style={{ opacity, scale, y }}
-            {...anim(H0_SCALE_VARIANTS, getDelay("h0"))}
           >
             Zen Tattoo
           </motion.p>

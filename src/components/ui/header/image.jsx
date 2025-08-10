@@ -34,6 +34,7 @@ export default function NavImage({ isActive, src, alt }) {
         decoding="async"
         placeholder="blur"
         fill
+        sizes="400px"
         className="object-cover"
       />
     </motion.div>

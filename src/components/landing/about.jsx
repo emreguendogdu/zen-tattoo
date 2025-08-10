@@ -1,11 +1,6 @@
 "use client"
 
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-} from "motion/react"
+import { useScroll, useTransform, motion } from "motion/react"
 import { forwardRef, useRef } from "react"
 import { Heart } from "../icons/heart"
 import { Diamond } from "../icons/diamond"
@@ -129,6 +124,7 @@ export default function About() {
                   placeholder="blur"
                   blurDataURL={item.blurDataURL}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={
                     "relative object-cover max-h-full max-w-full" +
                     (index === 0 ? " rounded-t-3xl md:rounded-t-[4rem]" : "")

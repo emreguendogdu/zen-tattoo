@@ -11,14 +11,9 @@ export const qualities = [
       "We offer a wide range of services to meet your unique tattoo needs. From custom designs to cover-ups and touch-ups, our talented artists are here to bring your vision to life. Top-notch quality and customer satisfaction are our top priorities.",
   },
   {
-    title: "Top Quality For: YOU",
+    title: "Top Quality For You",
     content:
       "We understand the importance of getting a tattoo that truly reflects you. That’s why we use only the highest quality equipment and handcrafted inks to ensure every tattoo is flawless. Your experience is our priority, and we strive to make it unforgettable.",
-  },
-  {
-    title: "Designing Your New Buddy",
-    content:
-      "Our experienced artists specialize in creating one-of-a-kind custom tattoo designs that reflect your individual style and personality. We work closely with you to create your new lifelong buddy.",
   },
   {
     title: "Cover-Ups? No Worries.",

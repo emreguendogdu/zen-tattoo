@@ -1,13 +1,8 @@
 "use client"
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "motion/react"
+import { motion, useScroll, useTransform } from "motion/react"
 import Image from "next/image"
-import { useRef } from "react"
+import { useRef, useCallback } from "react"
 
 import { qualities, images } from "@/data/qualities"
 import MarqueeText from "@/components/ui/MarqueeText"
@@ -25,10 +20,15 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
     <div
       className="sticky top-0 md:h-[100dvh] flex justify-center items-center md:py-sectionY-half z-30"
       ref={qualityTargetRef}
+      style={{ transformStyle: "preserve-3d" }}
     >
       <motion.div
         className="relative md:w-[1024px] md:h-fit border border-t-0 border-neutral-100 shadow-xl pb-4 rounded-2xl bg-white text-black z-40"
-        style={{ scale: CARD_SCALE, top: `calc(-5vh + ${(index + 1) * 25}px)` }}
+        style={{
+          scale: CARD_SCALE,
+          top: `calc(-5vh + ${(index + 1) * 25}px)`,
+          willChange: "transform",
+        }}
       >
         <div className="relative h-80 w-full overflow-hidden rounded-t-2xl">
           <motion.div
@@ -41,6 +41,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
               alt="Tattoo related"
               aria-hidden
               fill
+              sizes="(max-width: 768px) 100vw, 1024px"
               placeholder="blur"
               loading="lazy"
               decoding="async"
@@ -63,17 +64,22 @@ export default function Qualities() {
     offset: ["start start", "end end"],
   })
 
-  const { scrollYProgress: scaleProgress } = useScroll({
-    target: targetRef,
-    offset: ["85% start", "end 10%"],
-  })
-
-  const sectionScale = useTransform(scaleProgress, [0, 1], [1, 0.8])
-  const sectionY = useTransform(scaleProgress, [0, 1], [0, 1024])
-
-  useMotionValueEvent(scaleProgress, "change", (latest) => {
-    console.log(latest)
-  })
+  const renderQuality = useCallback(
+    (quality, i) => {
+      const targetScale = 1 - (qualities.length - i) * 0.05
+      return (
+        <Quality
+          quality={quality}
+          index={i}
+          key={`quality-${i}`}
+          globalProgress={scrollYProgress}
+          range={[i * (1 / (qualities.length + 1)), 1]}
+          targetScale={targetScale}
+        />
+      )
+    },
+    [scrollYProgress]
+  )
 
   return (
     <>
@@ -82,23 +88,8 @@ export default function Qualities() {
         className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] z-20 py-sectionY-m md:py-0"
         ref={targetRef}
       >
-        <motion.div
-          className="flex flex-col relative pb-sectionY-m-half"
-          style={{ scale: sectionScale, y: sectionY }}
-        >
-          {qualities.map((quality, i) => {
-            const targetScale = 1 - (qualities.length - i) * 0.05
-            return (
-              <Quality
-                quality={quality}
-                index={i}
-                key={`quality-${i}`}
-                globalProgress={scrollYProgress}
-                range={[i * (1 / (qualities.length + 1)), 1]}
-                targetScale={targetScale}
-              />
-            )
-          })}
+        <motion.div className="flex flex-col relative pb-sectionY-m-half">
+          {qualities.map(renderQuality)}
           <div className="absolute bottom-[200px] left-0 right-0 w-full">
             <div className="w-full overflow-hidden">
               <MarqueeText text="Zen Tattoo" speed={160} />

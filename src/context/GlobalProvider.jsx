@@ -1,10 +1,13 @@
 import { ScrollProvider } from "./ScrollContext"
 import { HeaderColorProvider } from "./HeaderColorContext"
+import HeroTitleProvider from "./HeroTitleContext"
 
 export default function GlobalProvider({ children }) {
   return (
     <ScrollProvider>
-      <HeaderColorProvider>{children}</HeaderColorProvider>
+      <HeaderColorProvider>
+        <HeroTitleProvider>{children}</HeroTitleProvider>
+      </HeaderColorProvider>
     </ScrollProvider>
   )
 }

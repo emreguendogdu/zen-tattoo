@@ -12,6 +12,7 @@ export default function GalleryIntro() {
               src={Image1}
               alt="Gallery"
               fill
+              sizes="(max-width: 768px) 100vw, 700px"
               className="object-cover rounded-md"
             />
           </div>

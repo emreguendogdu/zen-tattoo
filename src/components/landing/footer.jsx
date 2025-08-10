@@ -17,7 +17,7 @@ const months = [
 
 function Footer() {
   return (
-    <footer className="relative py-4 flex flex-col md:flex-row justify-between items-end md:items-center px-sectionX-m md:px-sectionX text-justify md:text-left bg-white text-black z-50">
+    <footer className="absolute left-0 right-0 bottom-0 py-4 flex flex-col md:flex-row justify-between items-end md:items-center px-sectionX-m md:px-sectionX text-justify md:text-left bg-white text-black z-50">
       <Availability />
       <p>
         © 2024 — All rights reserved. Made by{" "}
