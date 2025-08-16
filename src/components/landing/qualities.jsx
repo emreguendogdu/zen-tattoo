@@ -18,7 +18,7 @@ function Quality({ quality, index, range, targetScale, globalProgress }) {
 
   return (
     <div
-      className="sticky top-0 md:h-[100dvh] flex justify-center items-center md:py-sectionY-half z-30"
+      className="sticky -top-[10dvh] md:h-[100dvh] flex justify-center items-center md:py-sectionY-half z-30"
       ref={qualityTargetRef}
       style={{ transformStyle: "preserve-3d" }}
     >
@@ -82,21 +82,33 @@ export default function Qualities() {
   )
 
   return (
-    <>
-      <motion.section
-        id="qualities"
-        className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] z-20 py-sectionY-m md:py-0"
-        ref={targetRef}
-      >
-        <motion.div className="flex flex-col relative pb-sectionY-m-half">
-          {qualities.map(renderQuality)}
-          <div className="absolute bottom-[200px] left-0 right-0 w-full">
-            <div className="w-full overflow-hidden">
-              <MarqueeText text="Zen Tattoo" speed={160} />
-            </div>
+    <motion.section
+      id="qualities"
+      className="relative w-full bg-white border-neutral-400 border-y border-b-0 rounded-3xl md:rounded-[4rem] z-20 py-sectionY-m md:py-0"
+      ref={targetRef}
+    >
+      {/* Sticky "What We Offer" h2 that stays behind the qualities */}
+      <div className="sticky top-0 h-[50dvh] w-full bg-white flex justify-center items-center z-10">
+        <motion.h2
+          className="py-sectionY -tracking-[0.025em]"
+          style={{
+            scale: useTransform(scrollYProgress, [0, 0.25], [2.25, 1]),
+            opacity: useTransform(scrollYProgress, [0.15, 0.25], [1, 0]),
+            y: useTransform(scrollYProgress, [0, 0.25], [0, -315]),
+          }}
+        >
+          What We Offer
+        </motion.h2>
+      </div>
+
+      <motion.div className="flex flex-col relative pb-sectionY">
+        {qualities.map(renderQuality)}
+        <div className="absolute bottom-[200px] left-0 right-0 w-full">
+          <div className="w-full overflow-hidden">
+            <MarqueeText text="Zen Tattoo" speed={160} />
           </div>
-        </motion.div>
-      </motion.section>
-    </>
+        </div>
+      </motion.div>
+    </motion.section>
   )
 }

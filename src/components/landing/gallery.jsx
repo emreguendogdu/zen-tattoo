@@ -73,7 +73,7 @@ export default function Gallery() {
 
   const X_FOR_HORIZONTAL_SCROLL = useTransform(
     scrollYProgress,
-    [0, 1],
+    [0, 0.65],
     [0, -maxTranslate]
   )
 

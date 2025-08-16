@@ -6,6 +6,11 @@ export const opacity = {
   closed: { opacity: 0, transition: { duration: 0.35 } },
 }
 
+export const hover = {
+  initial: { scale: 1 },
+  hover: { scale: 1.2, transition: { duration: 0.35 } },
+}
+
 export const height = {
   initial: { height: 0 },
   enter: { height: "auto", transition },

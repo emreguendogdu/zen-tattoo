@@ -50,7 +50,7 @@ export default function Hero() {
   const { setHeroTitleWidth } = useHeroTitle()
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "80% end"],
+    offset: ["start start", "end end"],
   })
 
   useEffect(() => {
@@ -63,9 +63,9 @@ export default function Hero() {
     measureTitleWidth()
   }, [setHeroTitleWidth])
 
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.5])
-  const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.9])
-  const y = useTransform(scrollYProgress, [0, 0.9], [0, 50])
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5])
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 50])
 
   return (
     <section id="hero" className="relative min-h-[200dvh]" ref={targetRef}>
@@ -87,7 +87,7 @@ export default function Hero() {
                 repeatType: "reverse",
                 delay: PRELOADER_DURATION + 0.2,
               }}
-              className="relative -z-10"
+              className="relative -z-10 object-right"
               style={{
                 opacity,
                 scale,
@@ -99,7 +99,7 @@ export default function Hero() {
                 alt="Plants"
                 width={400}
                 height={500}
-                className="-rotate-90 translate-x-24 relative -z-10 object-scale-down"
+                className="-rotate-90 translate-x-24 relative -z-10 object-scale-down object-right"
                 priority
                 placeholder="blur"
               />

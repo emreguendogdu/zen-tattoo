@@ -6,19 +6,14 @@ import Quality5Image from "@/components/images/qualities/5.webp"
 
 export const qualities = [
   {
-    title: "Whatever You Want",
+    title: "Wide Range of Services",
     content:
       "We offer a wide range of services to meet your unique tattoo needs. From custom designs to cover-ups and touch-ups, our talented artists are here to bring your vision to life. Top-notch quality and customer satisfaction are our top priorities.",
   },
   {
-    title: "Top Quality For You",
+    title: "Top Quality Equipments",
     content:
       "We understand the importance of getting a tattoo that truly reflects you. That’s why we use only the highest quality equipment and handcrafted inks to ensure every tattoo is flawless. Your experience is our priority, and we strive to make it unforgettable.",
-  },
-  {
-    title: "Cover-Ups? No Worries.",
-    content:
-      "You want to transform or enhance your tat into next level? No worries. We offer the same creative, aesthetic guidance as we do with your tattoos. Book an appointment and we'll work on your next ink.",
   },
   {
     title: "VR, Kindle, Drink & Music",

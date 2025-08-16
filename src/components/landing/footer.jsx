@@ -22,7 +22,7 @@ function Footer() {
       <p>
         © 2024 — All rights reserved. Made by{" "}
         <Link
-          href="https://www.linkedin.com/in/emregnd/"
+          href="https://www.emregnd.com/"
           target="_blank"
           className="font-semibold underline underline-offset-2"
         >

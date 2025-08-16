@@ -35,7 +35,6 @@ export default function Plants({
             sizes="40px"
             className="object-cover object-center min-w-8 min-h-8 w-1/2 h-1/2"
             style={{ filter: isHovered ? "invert(1)" : "invert(0)" }}
-            priority
             placeholder="blur"
           />
         </motion.div>
@@ -60,7 +59,6 @@ export default function Plants({
             sizes="40px"
             className="object-cover object-center min-w-8 min-h-8 w-1/2 h-1/2"
             style={{ filter: isHovered ? "invert(1)" : "invert(0)" }}
-            priority
             placeholder="blur"
           />
         </motion.div>

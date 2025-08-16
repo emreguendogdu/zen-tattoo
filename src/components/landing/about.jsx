@@ -94,7 +94,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-fit bg-black text-white z-10 -mt-[100dvh] rounded-t-3xl md:rounded-t-[4rem]"
+      className="relative w-full h-fit bg-black text-white z-10 -mt-[100dvh] rounded-t-3xl md:rounded-t-[4rem] z-30"
       aria-label="About Zen Tattoo"
       tabIndex={0}
     >
